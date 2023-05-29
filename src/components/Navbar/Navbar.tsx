@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import NavBarStyled from "./NavbarStyled";
+import NavbarStyled from "./NavbarStyled";
 
-const NavBar = (): React.ReactElement => {
+const Navbar = (): React.ReactElement => {
   return (
-    <NavBarStyled className="navbar-container">
+    <NavbarStyled className="navbar-container">
       <NavLink className="navbar-container__link" to="/">
         <p>Home</p>
       </NavLink>
       <NavLink className="navbar-container__link" to="/signIn">
         <p>Sign in</p>
       </NavLink>
-    </NavBarStyled>
+    </NavbarStyled>
   );
 };
 
-export default NavBar;
+export default Navbar;

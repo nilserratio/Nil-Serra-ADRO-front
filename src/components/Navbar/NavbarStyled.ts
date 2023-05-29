@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const NavBarStyled = styled.div`
+const NavbarStyled = styled.div`
   font-family: ${(props) => props.theme.fonts.primary};
   color: ${(props) => props.theme.colors.secondary};
   display: flex;
@@ -10,4 +10,4 @@ const NavBarStyled = styled.div`
   padding: 0px;
   gap: 16px;
 `;
-export default NavBarStyled;
+export default NavbarStyled;

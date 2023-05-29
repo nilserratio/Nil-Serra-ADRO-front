@@ -1,5 +1,11 @@
+import ContainerStyled from "../shared/ContainerStyled";
+
 const App = (): React.ReactElement => {
-  return <p>ADRO Osona</p>;
+  return (
+    <ContainerStyled>
+      <p>ADRO Osona</p>
+    </ContainerStyled>
+  );
 };
 
 export default App;
