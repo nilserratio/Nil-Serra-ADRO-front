@@ -1,10 +1,14 @@
+import Header from "../Header/Header";
 import ContainerStyled from "../shared/ContainerStyled";
 
 const App = (): React.ReactElement => {
   return (
-    <ContainerStyled>
-      <p>ADRO Osona</p>
-    </ContainerStyled>
+    <>
+      <Header />
+      <ContainerStyled>
+        <p>ADRO Osona</p>
+      </ContainerStyled>
+    </>
   );
 };
 
