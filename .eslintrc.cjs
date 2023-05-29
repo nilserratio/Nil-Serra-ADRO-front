@@ -20,5 +20,23 @@ module.exports = {
   rules: {
     "react-refresh/only-export-components": "warn",
     "no-console": "error",
+    "no-restricted-imports": "warn",
+    "@typescript-eslint/no-restricted-imports": [
+      "warn",
+      {
+        name: "react-redux",
+        importNames: ["useSelector", "useDispatch"],
+        message:
+          "Use typed hooks `useAppDispatch` and `useAppSelector` instead.",
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ["*index.ts"],
+      rules: {
+        "@typescript-eslint/no-restricted-imports": "off",
+      },
+    },
+  ],
 };
