@@ -6,6 +6,7 @@ const HeaderStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 22px;
+  min-width: 320px;
   background-color: ${(prop) => prop.theme.colors.primary};
 `;
 
