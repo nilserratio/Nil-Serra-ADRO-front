@@ -5,7 +5,7 @@ const Header = (): React.ReactElement => {
   return (
     <HeaderStyled className="header-container">
       <img
-        className="header-container__picture"
+        className="header-container__logo"
         src="images/adro-logo.svg"
         alt="Adro Osona logo"
         width={133}

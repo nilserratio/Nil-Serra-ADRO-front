@@ -21,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0;
     font: inherit;
-    background-color: ${(props) => props.theme.colors.primary};
   }
 
   ul {
