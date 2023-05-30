@@ -25,6 +25,12 @@ const LoginFormStyled = styled.form`
       border-radius: 12px;
       background-color: ${(props) => props.theme.colors.secondary};
       color: ${(props) => props.theme.colors.primary};
+
+      :disabled {
+        color: ${(props) => props.theme.colors.secondary};
+        background-color: transparent;
+        border: 3px solid;
+      }
     }
   }
 `;

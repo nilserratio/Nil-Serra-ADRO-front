@@ -7,7 +7,7 @@ const Header = (): React.ReactElement => {
       <img
         className="header-container__logo"
         src="images/adro-logo.svg"
-        alt="Adro Osona logo"
+        alt="Adro Osona logo with a dog footprint"
         width={133}
         height={76}
       />
