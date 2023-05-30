@@ -9,8 +9,8 @@ const Navbar = (): React.ReactElement => {
       </NavLink>
       <NavLink
         className="navbar-container__link"
-        to="/signIn"
-        aria-label="signIn"
+        to="/login"
+        aria-label="login"
       >
         <span>Sign in</span>
       </NavLink>
