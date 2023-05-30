@@ -58,7 +58,11 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         ></input>
       </div>
 
-      <button className="login-container__submit" disabled={disabledButton}>
+      <button
+        className="login-container__submit"
+        disabled={disabledButton}
+        type="submit"
+      >
         Sign in
       </button>
     </LoginFormStyled>
