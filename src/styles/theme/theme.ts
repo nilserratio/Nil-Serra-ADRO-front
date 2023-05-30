@@ -1,4 +1,5 @@
 import { DefaultTheme } from "styled-components";
+import "@fontsource/poppins";
 
 const theme: DefaultTheme = {
   colors: {
