@@ -11,6 +11,7 @@ const theme: DefaultTheme = {
     primaryBackground: "#f6f3f1",
     secondaryBackground: "#d9d9d9",
   },
+
   fonts: {
     primary: "Poppins, sans-serif",
   },
