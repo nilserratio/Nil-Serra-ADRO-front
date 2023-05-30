@@ -1,31 +1,16 @@
-import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme/theme";
-import GlobalStyle from "../../styles/GlobalStyles/GlobalStyles";
+import { screen } from "@testing-library/react";
 import Navbar from "./Navbar";
+import renderWithProviders from "../../utils/testUtils";
 
 describe("Given a Navbar component", () => {
   describe("When its rendered", () => {
-    test("Then it should show the navigation link 'Home'", () => {
-      const routes = [
-        {
-          path: "/",
-          element: <Navbar />,
-        },
-      ];
+    test("Then it should show the navigation link 'home'", () => {
+      const expectedLinkText = "home";
 
-      const router = createMemoryRouter(routes);
-
-      render(
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      );
+      renderWithProviders(<Navbar />);
 
       const NavLinkHome = screen.getByRole("link", {
-        name: "Home",
+        name: expectedLinkText,
       });
 
       expect(NavLinkHome).toBeInTheDocument();
