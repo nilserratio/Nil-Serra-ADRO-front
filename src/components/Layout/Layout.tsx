@@ -5,8 +5,8 @@ import ContainerStyled from "../shared/ContainerStyled";
 const Layout = (): React.ReactElement => {
   return (
     <>
-      <Header />
       <ContainerStyled>
+        <Header />
         <Outlet />
       </ContainerStyled>
     </>
