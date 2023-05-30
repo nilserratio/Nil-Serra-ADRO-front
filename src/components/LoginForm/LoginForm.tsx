@@ -19,6 +19,9 @@ const LoginForm = (): React.ReactElement => {
     });
   };
 
+  const disabledButton =
+    userCredentials.username === "" || userCredentials.password === "";
+
   return (
     <LoginFormStyled className="loginForm-container" autoComplete="off">
       <div className="login-container__control">
@@ -31,7 +34,9 @@ const LoginForm = (): React.ReactElement => {
         <input id="password" type="password" onChange={onChangeData}></input>
       </div>
 
-      <button className="login-container__submit">Sign in</button>
+      <button className="login-container__submit" disabled={disabledButton}>
+        Sign in
+      </button>
     </LoginFormStyled>
   );
 };
