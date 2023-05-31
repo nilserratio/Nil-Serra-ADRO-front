@@ -26,7 +26,7 @@ describe("Given a LoginForm component", () => {
       expect(passwordTextField).toBeInTheDocument();
     });
 
-    test("Then it should show a button with the test 'Sign in'", () => {
+    test("Then it should show a button with the text 'Sign in'", () => {
       renderWithProviders(<LoginForm actionOnSubmit={mockOnSubmit} />);
 
       const signInButton = screen.getByRole("button", { name: signInText });
