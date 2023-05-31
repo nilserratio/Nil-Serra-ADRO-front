@@ -7,16 +7,12 @@ const useUser = () => {
   const getToken = async (
     userCredentials: UserCredentials
   ): Promise<string> => {
-    try {
-      const { data } = await axios.post<{ token: string }>(
-        `${apiUrl}/user/login`,
-        userCredentials
-      );
+    const { data } = await axios.post<{ token: string }>(
+      `${apiUrl}/user/login`,
+      userCredentials
+    );
 
-      return data.token;
-    } catch (error) {
-      throw new Error("Wrong Credentials");
-    }
+    return data.token;
   };
 
   return { getToken };
