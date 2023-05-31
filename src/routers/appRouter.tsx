@@ -1,6 +1,7 @@
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import { paths } from "../utils/paths/paths";
 
 const routes: RouteObject[] = [
   {
@@ -9,10 +10,10 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Navigate to="/login" replace />,
+        element: <Navigate to={paths.login} replace />,
       },
       {
-        path: "/login",
+        path: paths.login,
         element: <LoginPage />,
       },
       {

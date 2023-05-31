@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../store";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import { UserCredentials } from "../../types";
 import LoginPageStyled from "./LoginPageStyled";
+import { paths } from "../../utils/paths/paths";
 
 const LoginPage = (): React.ReactElement => {
   const { getToken } = useUser();
@@ -20,7 +21,7 @@ const LoginPage = (): React.ReactElement => {
       const userData = decodeToken(token);
 
       dispatch(loginUserActionCreator(userData));
-      navigate("/home", { replace: true });
+      navigate(paths.home, { replace: true });
     }
   };
 

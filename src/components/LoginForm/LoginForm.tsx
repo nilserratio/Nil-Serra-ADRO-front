@@ -45,7 +45,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
           type="text"
           onChange={onChangeData}
           value={userCredentials.username}
-        ></input>
+        />
       </div>
 
       <div className="login-container__control">
@@ -55,7 +55,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
           type="password"
           onChange={onChangeData}
           value={userCredentials.password}
-        ></input>
+        />
       </div>
 
       <button

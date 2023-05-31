@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import Navbar from "./Navbar";
-import renderWithProviders from "../../utils/testUtils";
+import renderWithProviders from "../../utils/testUtils/testUtils";
 
 describe("Given a Navbar component", () => {
   describe("When its rendered", () => {
