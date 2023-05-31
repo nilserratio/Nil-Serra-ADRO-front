@@ -3,7 +3,7 @@ import { vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import LoginForm from "./LoginForm";
 import renderWithProviders from "../../utils/testUtils";
-import { loginUserDataMock } from "../../mocks/userMocks";
+import { loginUserDataMock } from "../../mocks/user/userMocks";
 
 beforeAll(() => vi.clearAllMocks());
 
