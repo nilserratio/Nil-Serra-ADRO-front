@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
 import { PropsWithChildren } from "react";
 import { ThemeProvider } from "styled-components";
-import { RootState, setupStore, store } from "../store";
-import theme from "../styles/theme/theme";
-import GlobalStyle from "../styles/GlobalStyles/GlobalStyles";
+import { RootState, setupStore, store } from "../../store";
+import theme from "../../styles/theme/theme";
+import GlobalStyle from "../../styles/GlobalStyles/GlobalStyles";
 import { BrowserRouter } from "react-router-dom";
 
 const renderWithProviders = (

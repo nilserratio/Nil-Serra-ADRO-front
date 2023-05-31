@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import NavbarStyled from "./NavbarStyled";
+import { paths } from "../../utils/paths/paths";
 
 const Navbar = (): React.ReactElement => {
   return (
@@ -7,7 +8,7 @@ const Navbar = (): React.ReactElement => {
       <NavLink className="navbar-container__link" to="/">
         <span>Home</span>
       </NavLink>
-      <NavLink className="navbar-container__link" to="/login">
+      <NavLink className="navbar-container__link" to={paths.login}>
         <span>Sign in</span>
       </NavLink>
     </NavbarStyled>
