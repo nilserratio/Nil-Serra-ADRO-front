@@ -1,3 +1,4 @@
+import { renderHook } from "@testing-library/react";
 import { tokenMock, userTokenDataMock } from "../../../mocks/user/userMocks";
 import useToken from "../useToken";
 
@@ -6,7 +7,11 @@ describe("Given a useToken custom hook with decodeToken function", () => {
     test("Then it should return the user data with an id and the token as srting", () => {
       const userToken = tokenMock;
 
-      const { decodeToken } = useToken();
+      const {
+        result: {
+          current: { decodeToken },
+        },
+      } = renderHook(() => useToken());
 
       const userTokenData = decodeToken(userToken);
 
