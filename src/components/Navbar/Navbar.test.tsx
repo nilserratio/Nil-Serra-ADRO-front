@@ -1,15 +1,15 @@
 import { screen } from "@testing-library/react";
-import Navbar from "./Navbar";
-import {
-  renderWithProviders,
-  wrapWithRouter,
-} from "../../utils/testUtils/testUtils";
 import {
   RouteObject,
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import Navbar from "./Navbar";
+import {
+  renderWithProviders,
+  wrapWithRouter,
+} from "../../utils/testUtils/testUtils";
 import { paths } from "../../utils/paths/paths";
 import App from "../App/App";
 import { userLoggedStateMock } from "../../mocks/user/userMocks";
