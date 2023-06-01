@@ -3,6 +3,7 @@ import styled from "styled-components";
 const NavbarStyled = styled.nav`
   display: flex;
   gap: 20px;
+  align-items: center;
 
   .navbar-container {
     &__link {
