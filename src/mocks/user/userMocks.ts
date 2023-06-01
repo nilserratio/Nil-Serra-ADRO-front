@@ -13,6 +13,13 @@ export const userInitialStateMock: UserStateStructure = {
   isLogged: false,
 };
 
+export const userLoggedStateMock: UserStateStructure = {
+  id: "1",
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDZhNGE2YWUyN2UxMDIyNzZmMDk4ZDYiLCJuYW1lIjoidXNhaWFzIiwiaWF0IjoxNjg0NzQ5ODIwLCJleHAiOjE2ODUzNTQ2MjB9.oPNY8Bunrz4W6e540NRbHyL1qEbJUbha5a-_BGo-fX4",
+  isLogged: true,
+};
+
 export const loginUserDataMock: UserCredentials = {
   username: "John",
   password: "John",
