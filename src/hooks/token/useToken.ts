@@ -3,15 +3,17 @@ import { useCallback } from "react";
 import { UserTokenStructure } from "../../store/types";
 
 const useToken = () => {
-  const decodeToken = useCallback((token: string): UserTokenStructure => {
-    const tokenData: { sub: string } = jwt_decode(token);
-    const userData: UserTokenStructure = {
-      id: tokenData.sub,
-      token,
-    };
+  const decodeToken = useCallback(
+    (token: string): Partial<UserTokenStructure> => {
+      const tokenData: { sub: string } = jwt_decode(token);
+      const userData: Partial<UserTokenStructure> = {
+        id: tokenData.sub,
+      };
 
-    return userData;
-  }, []);
+      return userData;
+    },
+    []
+  );
 
   return { decodeToken };
 };

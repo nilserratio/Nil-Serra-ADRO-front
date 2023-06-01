@@ -8,6 +8,7 @@ import { UserCredentials } from "../../types";
 import LoginPageStyled from "./LoginPageStyled";
 import { paths } from "../../utils/paths/paths";
 import useLocalStorage from "../../hooks/localStorage/useLocalStorage";
+import { UserTokenStructure } from "../../store/types";
 
 const LoginPage = (): React.ReactElement => {
   const { getToken } = useUser();
@@ -22,7 +23,9 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userData = decodeToken(token);
 
-      dispatch(loginUserActionCreator(userData));
+      dispatch(
+        loginUserActionCreator({ ...userData, token } as UserTokenStructure)
+      );
       setToken("token", token);
       navigate(paths.home, { replace: true });
     }

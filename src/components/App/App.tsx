@@ -4,6 +4,7 @@ import useToken from "../../hooks/token/useToken";
 import { useAppDispatch } from "../../store";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import Layout from "../Layout/Layout";
+import { UserTokenStructure } from "../../store/types";
 
 const App = (): React.ReactElement => {
   const { getToken } = useLocalStorage();
@@ -15,7 +16,9 @@ const App = (): React.ReactElement => {
     if (token) {
       const userData = decodeToken(token);
 
-      dispatch(loginUserActionCreator(userData));
+      dispatch(
+        loginUserActionCreator({ ...userData, token } as UserTokenStructure)
+      );
     }
   }, [decodeToken, dispatch, getToken]);
 
