@@ -6,10 +6,10 @@ const Navbar = (): React.ReactElement => {
   return (
     <NavbarStyled className="navbar-container">
       <NavLink className="navbar-container__link" to="/">
-        <span>Home</span>
+        Home
       </NavLink>
       <NavLink className="navbar-container__link" to={paths.login}>
-        <span>Sign in</span>
+        Sign in
       </NavLink>
     </NavbarStyled>
   );

@@ -5,7 +5,7 @@ const NavbarStyled = styled.nav`
   gap: 20px;
 
   .navbar-container {
-    &__link > span {
+    &__link {
       font-family: ${(props) => props.theme.fonts.primary};
       color: ${(props) => props.theme.colors.secondary};
       font-size: 0.9rem;
