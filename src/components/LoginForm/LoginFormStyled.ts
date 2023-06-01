@@ -4,6 +4,7 @@ const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   padding: 32px 0;
+  align-items: center;
 
   .login-container {
     &__control {
@@ -11,6 +12,8 @@ const LoginFormStyled = styled.form`
       flex-direction: column;
       padding-bottom: 26px;
       gap: 10px;
+      max-width: 400px;
+      width: 100%;
     }
 
     &__control > input {
@@ -25,6 +28,8 @@ const LoginFormStyled = styled.form`
       border-radius: 12px;
       background-color: ${(props) => props.theme.colors.secondary};
       color: ${(props) => props.theme.colors.primary};
+      max-width: 400px;
+      width: 100%;
 
       :disabled {
         color: ${(props) => props.theme.colors.secondary};

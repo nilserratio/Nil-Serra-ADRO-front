@@ -1,5 +1,8 @@
 import { screen } from "@testing-library/react";
-import renderWithProviders from "../../utils/testUtils/testUtils";
+import {
+  renderWithProviders,
+  wrapWithRouter,
+} from "../../utils/testUtils/testUtils";
 import Header from "./Header";
 
 describe("Given a Header component", () => {
@@ -7,7 +10,7 @@ describe("Given a Header component", () => {
     test("Then it should show a picture with an alternative text that says 'Adro Osona logo with a dog footprint'", () => {
       const expectedAlternativeText = "Adro Osona logo with a dog footprint";
 
-      renderWithProviders(<Header />);
+      renderWithProviders(wrapWithRouter(<Header />));
 
       const text = screen.getByRole("img", { name: expectedAlternativeText });
 

@@ -11,6 +11,10 @@ const NavbarStyled = styled.nav`
       color: ${(props) => props.theme.colors.secondary};
       font-size: 0.9rem;
       font-weight: bold;
+
+      &.active {
+        text-decoration: underline;
+      }
     }
   }
 `;

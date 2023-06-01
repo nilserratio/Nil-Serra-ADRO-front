@@ -5,12 +5,8 @@ import { PropsWithChildren } from "react";
 import { ThemeProvider } from "styled-components";
 import { RootState, setupStore, store } from "../../store";
 import theme from "../../styles/theme/theme";
-import GlobalStyle from "../../styles/GlobalStyles/GlobalStyles";
-import {
-  BrowserRouter,
-  RouterProvider,
-  createMemoryRouter,
-} from "react-router-dom";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import GlobalStyle from "../../styles/GlobalStyle/GlobalStyle";
 
 export const renderWithProviders = (
   ui: React.ReactElement,
@@ -20,12 +16,10 @@ export const renderWithProviders = (
 
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Provider store={testStore}>{children}</Provider>;
-        </ThemeProvider>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Provider store={testStore}>{children}</Provider>;
+      </ThemeProvider>
     );
   };
 
