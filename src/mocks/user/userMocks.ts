@@ -1,6 +1,10 @@
 import { UserStateStructure, UserTokenStructure } from "../../store/types";
 import { UserCredentials } from "../../types";
 
+export const decodedTokenMock: Pick<UserTokenStructure, "id"> = {
+  id: "646a4a6ae27e102276f098d6",
+};
+
 export const userTokenDataMock: UserTokenStructure = {
   id: "646a4a6ae27e102276f098d6",
   token:
