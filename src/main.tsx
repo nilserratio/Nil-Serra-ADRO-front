@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { RouterProvider } from "react-router-dom";
 import { store } from "./store";
 import theme from "./styles/theme/theme";
-import GlobalStyle from "./styles/GlobalStyles/GlobalStyles";
+import GlobalStyle from "./styles/GlobalStyle/GlobalStyle";
 import appRouter from "./routers/appRouter";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

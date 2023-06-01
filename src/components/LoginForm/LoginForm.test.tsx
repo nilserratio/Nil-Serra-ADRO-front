@@ -2,7 +2,10 @@ import { screen } from "@testing-library/react";
 import { vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import LoginForm from "./LoginForm";
-import renderWithProviders from "../../utils/testUtils/testUtils";
+import {
+  renderWithProviders,
+  wrapWithRouter,
+} from "../../utils/testUtils/testUtils";
 import { loginUserDataMock } from "../../mocks/user/userMocks";
 
 beforeAll(() => vi.clearAllMocks());
@@ -17,7 +20,9 @@ describe("Given a LoginForm component", () => {
 
   describe("When it's rendered", () => {
     test("Then it should show form fields text 'Username' and 'Password'", () => {
-      renderWithProviders(<LoginForm actionOnSubmit={mockOnSubmit} />);
+      renderWithProviders(
+        wrapWithRouter(<LoginForm actionOnSubmit={mockOnSubmit} />)
+      );
 
       const usernameTextField = screen.getByLabelText(usernameText);
       const passwordTextField = screen.getByLabelText(passwordText);

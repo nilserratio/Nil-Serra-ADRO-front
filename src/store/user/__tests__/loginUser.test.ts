@@ -16,7 +16,7 @@ describe("Given a loginUser reducer", () => {
         loginUserActionCreator(newUserDataState)
       );
 
-      expect(newUserState.isLogged).toBe(expectedIsLoggedState);
+      expect(newUserState.isLogged).toStrictEqual(expectedIsLoggedState);
     });
   });
 });
