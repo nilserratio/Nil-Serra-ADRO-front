@@ -1,4 +1,4 @@
-import { UserStateStructure, UserTokenStructure } from "../../store/types";
+import { UserStateStructure, UserTokenStructure } from "../../store/user/types";
 import { UserCredentials } from "../../types";
 
 export const decodedTokenMock: Pick<UserTokenStructure, "id"> = {

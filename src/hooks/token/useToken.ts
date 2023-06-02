@@ -1,6 +1,6 @@
 import jwt_decode from "jwt-decode";
 import { useCallback } from "react";
-import { UserTokenStructure } from "../../store/types";
+import { UserTokenStructure } from "../../store/user/types";
 
 const useToken = () => {
   const decodeToken = useCallback(
