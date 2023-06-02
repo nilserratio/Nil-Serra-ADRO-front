@@ -38,7 +38,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
       autoComplete="off"
       onSubmit={onSubmitUserData}
     >
-      <div className="login-container__control">
+      <div className="loginForm__control">
         <label htmlFor="username">Username</label>
         <input
           id="username"
@@ -48,7 +48,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         />
       </div>
 
-      <div className="login-container__control">
+      <div className="loginForm__control">
         <label htmlFor="password">Password</label>
         <input
           id="password"
@@ -59,7 +59,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
       </div>
 
       <button
-        className="login-container__submit"
+        className="loginForm__submit"
         disabled={disabledButton}
         type="submit"
       >

@@ -6,7 +6,7 @@ const LoginFormStyled = styled.form`
   padding: 32px 0;
   align-items: center;
 
-  .login-container {
+  .loginForm {
     &__control {
       display: flex;
       flex-direction: column;
