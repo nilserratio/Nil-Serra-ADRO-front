@@ -30,7 +30,7 @@ describe("Given a Navbar component", () => {
   });
 
   describe("When the user is logged and clicks the 'Sing out' button", () => {
-    test("Then it shoul logout the user and redirects him to the '/login' path", async () => {
+    test("Then it should logout the user and redirects him to the '/login' path", async () => {
       const buttonText = "Sign out";
 
       const route: RouteObject[] = [

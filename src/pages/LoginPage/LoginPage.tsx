@@ -8,7 +8,7 @@ import { UserCredentials } from "../../types";
 import LoginPageStyled from "./LoginPageStyled";
 import { paths } from "../../utils/paths/paths";
 import useLocalStorage from "../../hooks/localStorage/useLocalStorage";
-import { UserTokenStructure } from "../../store/types";
+import { UserTokenStructure } from "../../store/user/types";
 
 const LoginPage = (): React.ReactElement => {
   const { getToken } = useUser();

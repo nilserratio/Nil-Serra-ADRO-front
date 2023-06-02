@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserStateStructure, UserTokenStructure } from "../types";
+import { UserStateStructure, UserTokenStructure } from "./types";
 
 const initialUserState: UserStateStructure = {
   id: "",
