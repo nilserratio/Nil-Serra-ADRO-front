@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AnimalsPageStyled = styled.section`
+const AnimalsPageStyled = styled.main`
   background-color: ${(props) => props.theme.colors.secondaryBackground};
   padding: 32px 22px;
   height: 100vh;
@@ -10,8 +10,7 @@ const AnimalsPageStyled = styled.section`
       font-weight: 600;
       font-size: 2rem;
       line-height: 48px;
-      text-align: center;
-      margin-top: 20px;
+      margin: 20px 0;
     }
   }
 `;
