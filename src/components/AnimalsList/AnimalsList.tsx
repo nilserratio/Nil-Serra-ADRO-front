@@ -1,11 +1,10 @@
-import { AnimalDataStructure } from "../../types";
+import { useAppSelector } from "../../store";
+import AnimalCard from "../AnimalCard/AnimalCard";
 import AnimalsListStyled from "./AnimalsListStyled";
 
-interface AnimalsListProps {
-  animals: AnimalDataStructure[];
-}
+const AnimalsList = (): React.ReactElement => {
+  const animals = useAppSelector((state) => state.animals.animals);
 
-const AnimalsList = ({ animals }: AnimalsListProps): React.ReactElement => {
   return (
     <AnimalsListStyled
       className="animalsList-container"
@@ -13,7 +12,7 @@ const AnimalsList = ({ animals }: AnimalsListProps): React.ReactElement => {
     >
       {animals.map((animal) => (
         <li key={animal.id} className="animalsList-container__card">
-          <span>Animal Card</span>
+          <AnimalCard animal={animal} />
         </li>
       ))}
     </AnimalsListStyled>
