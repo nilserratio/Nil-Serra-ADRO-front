@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoginPageStyled = styled.section`
+const LoginPageStyled = styled.main`
   background-color: ${(props) => props.theme.colors.secondaryBackground};
   padding: 32px 22px;
   height: 100vh;
