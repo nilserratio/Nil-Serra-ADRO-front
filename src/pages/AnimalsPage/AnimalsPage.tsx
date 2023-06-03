@@ -18,7 +18,7 @@ const AnimalsPage = (): React.ReactElement => {
         <h1 className="animals-container__title">In adoption</h1>
         <span>You can&apos;t buy love, but you can reccue it.</span>
       </div>
-      <AnimalsList animals={animalsMock} />
+      <AnimalsList />
     </AnimalsPageStyled>
   );
 };

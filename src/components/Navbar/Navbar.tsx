@@ -20,7 +20,7 @@ const Navbar = (): React.ReactElement => {
 
   return (
     <NavbarStyled className="navbar-container">
-      <NavLink className="navbar-container__link" to="/">
+      <NavLink className="navbar-container__link" to={paths.home}>
         Home
       </NavLink>
       {isLogged ? (
