@@ -1,6 +1,7 @@
 interface ButtonProps {
   className?: string;
   ariaLabel?: string;
+  type?: "button" | "submit" | "reset" | undefined;
   text?: string;
   isDisable?: boolean;
   actionOnClick?: () => void;
@@ -10,6 +11,7 @@ interface ButtonProps {
 const Button = ({
   className,
   ariaLabel,
+  type,
   text,
   isDisable,
   actionOnClick,
@@ -19,6 +21,7 @@ const Button = ({
     <button
       className={className}
       aria-label={ariaLabel}
+      type={type}
       disabled={isDisable}
       onClick={actionOnClick}
     >

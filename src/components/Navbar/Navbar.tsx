@@ -4,6 +4,7 @@ import { paths } from "../../utils/paths/paths";
 import { useAppDispatch, useAppSelector } from "../../store";
 import useLocalStorage from "../../hooks/localStorage/useLocalStorage";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
+import Button from "../Button/Button";
 
 const Navbar = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
@@ -24,9 +25,11 @@ const Navbar = (): React.ReactElement => {
         Home
       </NavLink>
       {isLogged ? (
-        <button className="navbar-container__link" onClick={actionOnClick}>
-          Sign out
-        </button>
+        <Button
+          className="navbar-container__link"
+          actionOnClick={actionOnClick}
+          text="Sign out"
+        />
       ) : (
         <NavLink className="navbar-container__link" to={paths.login}>
           Sign in

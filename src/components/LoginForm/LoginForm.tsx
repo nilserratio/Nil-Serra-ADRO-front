@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserCredentials } from "../../types";
 import LoginFormStyled from "./LoginFormStyled";
+import Button from "../Button/Button";
 
 interface LoginFormProps {
   actionOnSubmit: (user: UserCredentials) => void;
@@ -58,13 +59,12 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         />
       </div>
 
-      <button
+      <Button
         className="loginForm__submit"
-        disabled={disabledButton}
         type="submit"
-      >
-        Sign in
-      </button>
+        isDisable={disabledButton}
+        text="Sign in"
+      />
     </LoginFormStyled>
   );
 };
