@@ -6,7 +6,7 @@ export const animalsMock: AnimalDataStructure[] = [
     name: "Bella",
     species: "dog",
     races: ["labrador"],
-    gender: "female",
+    gender: "Female",
     size: "Medium Size",
     yearOfBirth: "2019",
     imageUrl:
@@ -20,7 +20,7 @@ export const animalsMock: AnimalDataStructure[] = [
     name: "Max",
     species: "dog",
     races: ["golden-retriever", "poodle"],
-    gender: "male",
+    gender: "Male",
     size: "Medium Size",
     yearOfBirth: "2017",
     imageUrl:
