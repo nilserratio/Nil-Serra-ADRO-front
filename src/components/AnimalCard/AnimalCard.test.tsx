@@ -8,7 +8,9 @@ describe("Given a AnimalCard component", () => {
     test("Then it should render a card with the text 'Bella' inside a heading", () => {
       const animalName = "Bella";
 
-      renderWithProviders(<AnimalCard animal={animalsMock[0]} />);
+      renderWithProviders(
+        <AnimalCard animal={animalsMock[0]} isLazy="eager" />
+      );
 
       const cardHeading = screen.getByRole("heading", { name: animalName });
 
