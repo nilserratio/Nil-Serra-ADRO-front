@@ -9,12 +9,12 @@ const uiSlice = createSlice({
   name: "ui",
   initialState: initialUiState,
   reducers: {
-    showLoading: (currentState: UiStructure): UiStructure => ({
+    showLoader: (currentState: UiStructure): UiStructure => ({
       ...currentState,
       isLoading: true,
     }),
 
-    hideLoading: (currentState: UiStructure): UiStructure => ({
+    hideLoader: (currentState: UiStructure): UiStructure => ({
       ...currentState,
       isLoading: false,
     }),
@@ -22,6 +22,8 @@ const uiSlice = createSlice({
 });
 
 export const {
-  showLoading: showLoadingActionCreator,
-  hideLoading: hideLoadingActionCreator,
+  showLoader: showLoaderActionCreator,
+  hideLoader: hideLodergActionCreator,
 } = uiSlice.actions;
+
+export const uiReducer = uiSlice.reducer;
