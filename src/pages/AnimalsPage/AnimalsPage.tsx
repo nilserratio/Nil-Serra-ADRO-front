@@ -20,7 +20,7 @@ const AnimalsPage = (): React.ReactElement => {
     <AnimalsPageStyled className="animals-container">
       <div>
         <h1 className="animals-container__title">In adoption</h1>
-        <span>You can&apos;t buy love, but you can reccue it.</span>
+        <span>You can&apos;t buy love, but you can rescue it.</span>
       </div>
       <AnimalsList />
     </AnimalsPageStyled>
