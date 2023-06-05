@@ -10,9 +10,13 @@ const AnimalsList = (): React.ReactElement => {
       className="animalsList-container"
       aria-label="list of animals in adoption"
     >
-      {animals.map((animal) => (
+      {animals.map((animal, index) => (
         <li key={animal.id} className="animalsList-container__card">
-          <AnimalCard animal={animal} />
+          <AnimalCard
+            animal={animal}
+            key={animal.id}
+            isLazy={index === 0 ? "eager" : "lazy"}
+          />
         </li>
       ))}
     </AnimalsListStyled>
