@@ -1,14 +1,20 @@
 import axios from "axios";
 import { UserCredentials } from "../../types";
 import { paths } from "../../utils/paths/paths";
+import { useAppDispatch } from "../../store";
+import { showLoaderActionCreator } from "../../store/iu/uiSlice";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const useUser = () => {
+  const dispatch = useAppDispatch();
+
   const getToken = async (
     userCredentials: UserCredentials
   ): Promise<string> => {
     try {
+      dispatch(showLoaderActionCreator());
+
       const { data } = await axios.post<{ token: string }>(
         `${apiUrl}${paths.user}${paths.login}`,
         userCredentials
