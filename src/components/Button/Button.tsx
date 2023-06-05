@@ -10,12 +10,12 @@ interface ButtonProps {
 
 const Button = ({
   className,
-  ariaLabel,
-  type,
   text,
+  type,
+  ariaLabel,
+  children,
   isDisable,
   actionOnClick,
-  children,
 }: ButtonProps): React.ReactElement => {
   return (
     <button

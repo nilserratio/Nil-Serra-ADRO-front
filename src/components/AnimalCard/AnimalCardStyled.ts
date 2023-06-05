@@ -21,7 +21,7 @@ const AnimalCardStyled = styled.article`
       flex-direction: column;
       justify-content: center;
       padding: 22px;
-      gap: 16px;
+      gap: 8px;
     }
 
     &__information > h2 {
