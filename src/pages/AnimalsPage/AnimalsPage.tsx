@@ -2,15 +2,19 @@ import { useEffect } from "react";
 import AnimalsPageStyled from "./AnimalsPageStyled";
 import { useAppDispatch } from "../../store";
 import { loadAnimalsActionCreator } from "../../store/animals/animalsSlice";
-import { animalsMock } from "../../mocks/animals/animalsMocks";
 import AnimalsList from "../../components/AnimalsList/AnimalsList";
+import useAnimals from "../../hooks/animals/useAnimals";
 
 const AnimalsPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { getAnimals } = useAnimals();
 
   useEffect(() => {
-    dispatch(loadAnimalsActionCreator(animalsMock));
-  }, [dispatch]);
+    (async () => {
+      const animalsList = await getAnimals();
+      dispatch(loadAnimalsActionCreator(animalsList));
+    })();
+  }, [dispatch, getAnimals]);
 
   return (
     <AnimalsPageStyled className="animals-container">

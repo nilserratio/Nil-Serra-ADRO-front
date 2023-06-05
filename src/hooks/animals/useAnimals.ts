@@ -10,7 +10,7 @@ const useAnimals = () => {
     const {
       data: { animals },
     } = await axios.get<{ animals: AnimalDataStructure[] }>(
-      `${apiUrl}${paths.home}`
+      `${apiUrl}${paths.animals}`
     );
 
     return animals;

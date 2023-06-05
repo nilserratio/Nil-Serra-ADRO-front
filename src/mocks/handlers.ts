@@ -9,7 +9,7 @@ export const handlers = [
   rest.post(`${apiUrl}${paths.user}${paths.login}`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ token: tokenMock }));
   }),
-  rest.get(`${apiUrl}${paths.home}`, (_req, res, ctx) => {
+  rest.get(`${apiUrl}${paths.animals}`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ animals: animalsMock }));
   }),
 ];
