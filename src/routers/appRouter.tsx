@@ -11,21 +11,21 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Navigate to={paths.login} replace />,
-      },
-      {
-        path: paths.login,
-        element: (
-          <Suspense>
-            <LazyLoginPage />
-          </Suspense>
-        ),
+        element: <Navigate to={paths.home} replace />,
       },
       {
         path: paths.home,
         element: (
           <Suspense>
             <LazyHomePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: paths.login,
+        element: (
+          <Suspense>
+            <LazyLoginPage />
           </Suspense>
         ),
       },
