@@ -2,7 +2,12 @@ import axios from "axios";
 import { UserCredentials } from "../../types";
 import { paths } from "../../utils/paths/paths";
 import { useAppDispatch } from "../../store";
-import { showLoaderActionCreator } from "../../store/iu/uiSlice";
+import {
+  hideLoaderActionCreator,
+  showFeedbackActionCreator,
+  showLoaderActionCreator,
+} from "../../store/iu/uiSlice";
+import { feedbackMessages } from "../../utils/responseData/responseData";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -11,7 +16,7 @@ const useUser = () => {
 
   const getToken = async (
     userCredentials: UserCredentials
-  ): Promise<string> => {
+  ): Promise<string | undefined> => {
     try {
       dispatch(showLoaderActionCreator());
 
@@ -22,7 +27,13 @@ const useUser = () => {
 
       return data.token;
     } catch (error) {
-      throw new Error("Wrong Credentials");
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: feedbackMessages.credentialsWrong,
+        })
+      );
     }
   };
 
