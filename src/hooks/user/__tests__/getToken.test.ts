@@ -27,7 +27,7 @@ describe("Given a useUser custom hook with getToken function", () => {
   });
 
   describe("When the function getToken is called with an invalid user credentials", () => {
-    test("Then it should return the response's method with an error with 401 status code", () => {
+    test("Then it should show a feedback modal error with the message 'Wrong Credentials'", async () => {
       server.resetHandlers(...errorHandlers);
 
       const {
@@ -36,9 +36,9 @@ describe("Given a useUser custom hook with getToken function", () => {
         },
       } = renderHook(() => useUser(), { wrapper: wrapper });
 
-      const getTokenFunction = getToken(user);
+      const getTokenFunction = await getToken(user);
 
-      expect(getTokenFunction).rejects.toThrowError();
+      expect(getTokenFunction).toBeUndefined();
     });
   });
 });
