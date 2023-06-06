@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 const NotFoundPageStyled = styled.main`
   background-color: ${(props) => props.theme.colors.quatenary};
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .notFound-container {
     &__image {
       position: relative;
+      object-fit: cover;
     }
   }
 
