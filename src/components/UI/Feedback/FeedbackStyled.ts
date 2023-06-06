@@ -25,12 +25,12 @@ const FeedbackStyled = styled.div`
     max-width: 400px;
 
     &__title {
-      color: #3d9a50;
+      color: ${(props) => props.theme.colors.succeed};
       font-size: 1.25rem;
       font-weight: bold;
 
       &--error {
-        color: #db4324;
+        color: ${(props) => props.theme.colors.error};
       }
     }
 
@@ -38,13 +38,13 @@ const FeedbackStyled = styled.div`
       padding: 16px 32px;
       margin-top: 10px;
       border-radius: 12px;
-      background-color: #3d9a50;
+      background-color: ${(props) => props.theme.colors.succeed};
       color: ${(props) => props.theme.colors.primary};
       max-width: 400px;
       width: 100%;
 
       &--error {
-        background-color: #db4324;
+        background-color: ${(props) => props.theme.colors.error};
       }
     }
   }

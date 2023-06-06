@@ -4,7 +4,11 @@ import {
   wrapWithRouter,
 } from "../../utils/testUtils/testUtils";
 import Layout from "./Layout";
-import { isLoadingMock } from "../../mocks/ui/uiMocks";
+import { vi } from "vitest";
+
+afterEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {
@@ -21,13 +25,45 @@ describe("Given a Layout component", () => {
 
   describe("When it's rendered but it's taking time to load the page", () => {
     test("Then it should show a Loader component", () => {
-      const text = "loading";
+      const labelText = "loading";
 
-      renderWithProviders(wrapWithRouter(<Layout />), { ui: isLoadingMock });
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { isLoading: true },
+      });
 
-      const loader = screen.getByLabelText(text);
+      const loader = screen.getByLabelText(labelText);
 
       expect(loader).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's rendered but there is an error loading the home page", () => {
+    test("Then it should show a Feedback component", () => {
+      const labelText = "feedback modal";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { showFeedback: true },
+      });
+
+      const feedbackModal = screen.getByLabelText(labelText);
+
+      expect(feedbackModal).toBeInTheDocument();
+    });
+
+    test("Then it should show a Feedback component with a Button with the text 'Acccpet'", () => {
+      const buttonText = "Accept";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: {
+          showFeedback: true,
+          isError: true,
+          isLoading: false,
+        },
+      });
+
+      const buttonModal = screen.getByRole("button", { name: buttonText });
+
+      expect(buttonModal).toBeInTheDocument();
     });
   });
 });

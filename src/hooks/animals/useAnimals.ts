@@ -5,27 +5,42 @@ import { useCallback } from "react";
 import { useAppDispatch } from "../../store";
 import {
   hideLoaderActionCreator,
+  showFeedbackActionCreator,
   showLoaderActionCreator,
 } from "../../store/iu/uiSlice";
+import { feedbackMessages } from "../../utils/responseData/responseData";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const useAnimals = () => {
   const dispatch = useAppDispatch();
 
-  const getAnimals = useCallback(async (): Promise<AnimalDataStructure[]> => {
+  const getAnimals = useCallback(async (): Promise<
+    AnimalDataStructure[] | undefined
+  > => {
     dispatch(showLoaderActionCreator());
+    try {
+      const {
+        data: { animals },
+      } = await axios.get<{ animals: AnimalDataStructure[] }>(
+        `${apiUrl}${paths.animals}`
+      );
 
-    const {
-      data: { animals },
-    } = await axios.get<{ animals: AnimalDataStructure[] }>(
-      `${apiUrl}${paths.animals}`
-    );
+      dispatch(hideLoaderActionCreator());
 
-    dispatch(hideLoaderActionCreator());
-
-    return animals;
+      return animals;
+    } catch (error) {
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: feedbackMessages.error,
+        })
+      );
+    }
   }, [dispatch]);
+
+  dispatch(hideLoaderActionCreator());
 
   return { getAnimals };
 };

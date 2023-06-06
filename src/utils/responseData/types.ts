@@ -1,5 +1,6 @@
 export interface FeedbackMessages {
   credentialsWrong: string;
+  error: string;
   deleteOk: string;
   deleteFailed: string;
   createOk: string;

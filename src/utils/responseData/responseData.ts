@@ -2,6 +2,7 @@ import { FeedbackMessages } from "./types";
 
 export const feedbackMessages: FeedbackMessages = {
   credentialsWrong: "Wrong Credentials",
+  error: "Something went wrong. Try it again please.",
   deleteOk: "You have successfully deleted this card from the adoption list.",
   deleteFailed:
     "There was an error on deleting the card from the adoption list. Try it again please.",
