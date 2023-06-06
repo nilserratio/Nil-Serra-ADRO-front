@@ -1,12 +1,10 @@
+import { useAppSelector } from "../../../store";
 import Button from "../../Button/Button";
 import FeedbackStyled from "./FeedbackStyled";
 
-interface FeedbackProps {
-  message: string;
-  isError?: boolean;
-}
+const Feedback = (): React.ReactElement => {
+  const { isError, message } = useAppSelector((state) => state.ui);
 
-const Feedback = ({ isError, message }: FeedbackProps): React.ReactElement => {
   return (
     <FeedbackStyled className="feedback-container">
       <article className="modal-container" aria-label="feedback modal">

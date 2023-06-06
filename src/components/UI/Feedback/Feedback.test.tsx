@@ -1,14 +1,13 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../../utils/testUtils/testUtils";
 import Feedback from "./Feedback";
-import { feedbackMessages } from "../../../utils/responseData/responseData";
 
 describe("Given a Feedback component", () => {
   describe("When it's rendered", () => {
     test("Then it should show a feedback modal", () => {
       const text = "feedback modal";
 
-      renderWithProviders(<Feedback message={feedbackMessages.deleteOk} />);
+      renderWithProviders(<Feedback />);
 
       const modal = screen.getByLabelText(text);
 
