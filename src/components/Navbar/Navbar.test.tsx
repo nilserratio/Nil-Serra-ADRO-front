@@ -35,7 +35,7 @@ describe("Given a Navbar component", () => {
 
       const route: RouteObject[] = [
         {
-          path: "/",
+          path: paths.root,
           element: <App />,
         },
       ];
