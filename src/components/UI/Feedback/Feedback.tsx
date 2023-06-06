@@ -1,12 +1,24 @@
-import { useAppSelector } from "../../../store";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import { hideFeedbackActionCreator } from "../../../store/iu/uiSlice";
 import Button from "../../Button/Button";
 import FeedbackStyled from "./FeedbackStyled";
 
 const Feedback = (): React.ReactElement => {
   const { isError, message } = useAppSelector((state) => state.ui);
+  const dispatch = useAppDispatch();
+
+  const handleOnClose = () => {
+    dispatch(hideFeedbackActionCreator());
+  };
 
   return (
-    <FeedbackStyled className="feedback-container">
+    <FeedbackStyled
+      className="feedback-container"
+      role="button"
+      tabIndex={0}
+      onClick={handleOnClose}
+      onKeyPress={handleOnClose}
+    >
       <article className="modal-container" aria-label="feedback modal">
         {isError ? (
           <img
