@@ -10,6 +10,8 @@ declare module "styled-components" {
       quinary: string;
       primaryBackground: string;
       secondaryBackground: string;
+      error: string;
+      succeed: string;
     };
 
     fonts: {

@@ -12,7 +12,9 @@ const AnimalsPage = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       const animalsList = await getAnimals();
-      dispatch(loadAnimalsActionCreator(animalsList));
+      if (animalsList) {
+        dispatch(loadAnimalsActionCreator(animalsList));
+      }
     })();
   }, [dispatch, getAnimals]);
 
