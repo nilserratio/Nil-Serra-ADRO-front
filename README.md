@@ -24,4 +24,6 @@ ADRO Osona is built using the following technologies:
 
 ## Author
 
+Nil Serra Tió
+
 https://github.com/nilserratio
