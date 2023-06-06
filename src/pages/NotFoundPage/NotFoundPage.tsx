@@ -16,6 +16,8 @@ const NotFoundPage = (): React.ReactElement => {
         className="notFound-container__image"
         src="images/notFound-bg.webp"
         alt="A dog with its back facing the screen"
+        width={375}
+        height={750}
       />
       <div className="info-cotainer">
         <span className="info-cotainer__text">Oops!</span>
