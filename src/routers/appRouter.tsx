@@ -6,7 +6,7 @@ import { LazyHomePage, LazyLoginPage } from "./LazyPages";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: paths.root,
     element: <App />,
     children: [
       {
@@ -30,7 +30,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "*",
+        path: paths.notFound,
         element: <p>Page not found, please try it later</p>,
       },
     ],

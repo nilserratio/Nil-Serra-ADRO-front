@@ -37,7 +37,7 @@ describe("Given a LoginPage component", () => {
 
       const route: RouteObject[] = [
         {
-          path: "/",
+          path: paths.root,
           element: <LoginPage />,
         },
       ];

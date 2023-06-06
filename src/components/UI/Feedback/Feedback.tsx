@@ -2,7 +2,7 @@ import Button from "../../Button/Button";
 import FeedbackStyled from "./FeedbackStyled";
 
 interface FeedbackProps {
-  message?: string;
+  message: string;
   isError?: boolean;
 }
 
