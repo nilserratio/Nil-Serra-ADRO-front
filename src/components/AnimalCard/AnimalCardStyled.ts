@@ -37,6 +37,25 @@ const AnimalCardStyled = styled.article`
     &__characteristics > span {
       font-size: 20px;
     }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .update-button {
+    background: ${(props) => props.theme.colors.quatenary};
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
+  }
+
+  .delete-button {
+    background: ${(props) => props.theme.colors.quinary};
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
   }
 `;
 
