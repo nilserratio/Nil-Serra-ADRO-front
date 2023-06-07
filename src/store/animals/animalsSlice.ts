@@ -13,12 +13,25 @@ const animalsSlice = createSlice({
     loadAnimals: (
       currentAnimalsState: AnimalsStateStructure,
       action: PayloadAction<AnimalDataStructure[]>
-    ) => ({
+    ): AnimalsStateStructure => ({
       ...currentAnimalsState,
       animals: [...action.payload],
+    }),
+
+    removeAnimal: (
+      currentAnimalsState: AnimalsStateStructure,
+      action: PayloadAction<string>
+    ): AnimalsStateStructure => ({
+      ...currentAnimalsState,
+      animals: currentAnimalsState.animals.filter(
+        (animal) => animal.id !== action.payload
+      ),
     }),
   },
 });
 
-export const { loadAnimals: loadAnimalsActionCreator } = animalsSlice.actions;
+export const {
+  loadAnimals: loadAnimalsActionCreator,
+  removeAnimal: removeAnimalActionCreator,
+} = animalsSlice.actions;
 export const animalsReducer = animalsSlice.reducer;
