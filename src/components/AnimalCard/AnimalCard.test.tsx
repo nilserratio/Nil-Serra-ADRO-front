@@ -27,7 +27,7 @@ describe("Given a AnimalCard component", () => {
     });
   });
 
-  describe("When it's rendered and the delete button is clicked", () => {
+  describe("When it's rendered with a logged user that owns the card, and the delete button is clicked", () => {
     const buttonAriaLabel = "button to delete an animal card";
 
     test("Then it should the delete button", () => {

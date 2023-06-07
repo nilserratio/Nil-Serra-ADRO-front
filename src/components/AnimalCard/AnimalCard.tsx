@@ -36,11 +36,14 @@ const AnimalCard = ({
         </div>
         {isCardOwner && (
           <div className="animal-card__buttons">
-            <Button
-              text="Update"
-              ariaLabel="update button"
-              className="update-button"
-            />
+            <Button className="update-button" ariaLabel="update button">
+              <img
+                src="images/update-icon.svg"
+                alt="update button icon"
+                width={32}
+                height={32}
+              />
+            </Button>
             <Button
               className="delete-button"
               ariaLabel="button to delete an animal card"

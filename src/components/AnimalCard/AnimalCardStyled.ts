@@ -45,6 +45,8 @@ const AnimalCardStyled = styled.article`
   }
 
   .update-button {
+    display: flex;
+    align-items: center;
     background: ${(props) => props.theme.colors.quatenary};
     border-radius: 12px;
     padding: 12px;
