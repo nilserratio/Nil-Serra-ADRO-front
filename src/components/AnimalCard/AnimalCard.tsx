@@ -1,3 +1,4 @@
+import { useAppSelector } from "../../store";
 import { AnimalDataStructure } from "../../types";
 import Button from "../Button/Button";
 import AnimalCardStyled from "./AnimalCardStyled";
@@ -9,10 +10,14 @@ interface AnimalCardProps {
 }
 
 const AnimalCard = ({
-  animal: { name, species, size, imageUrl, gender, id },
+  animal: { name, species, size, imageUrl, gender, id, user },
   isLazy,
   actionOnClick,
 }: AnimalCardProps): React.ReactElement => {
+  const { id: userId, isLogged } = useAppSelector((state) => state.user);
+
+  const isCardOwner = isLogged && userId === user;
+
   return (
     <AnimalCardStyled className="animal-card">
       <img
@@ -29,19 +34,27 @@ const AnimalCard = ({
           <span>{gender}</span>
           <span>{size}</span>
         </div>
-        <div className="animal-card__buttons">
-          <Button
-            text="Update"
-            ariaLabel="update button"
-            className="update-button"
-          />
-          <Button
-            text="Delete"
-            ariaLabel="delete button"
-            className="delete-button"
-            actionOnClick={() => actionOnClick(id)}
-          />
-        </div>
+        {isCardOwner && (
+          <div className="animal-card__buttons">
+            <Button
+              text="Update"
+              ariaLabel="update button"
+              className="update-button"
+            />
+            <Button
+              className="delete-button"
+              ariaLabel="button to delete an animal card"
+              actionOnClick={() => actionOnClick(id)}
+            >
+              <img
+                src="images/delete-icon.svg"
+                alt="delete button icon"
+                width={32}
+                height={32}
+              />
+            </Button>
+          </div>
+        )}
       </div>
     </AnimalCardStyled>
   );

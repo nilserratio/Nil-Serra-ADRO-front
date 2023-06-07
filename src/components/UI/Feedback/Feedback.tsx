@@ -17,7 +17,6 @@ const Feedback = (): React.ReactElement => {
       role="button"
       tabIndex={0}
       onClick={handleOnClose}
-      onKeyPress={handleOnClose}
     >
       <article className="modal-container" aria-label="feedback modal">
         {isError ? (

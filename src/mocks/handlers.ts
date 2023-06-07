@@ -12,12 +12,6 @@ export const handlers = [
   rest.get(`${apiUrl}${paths.animals}`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ animals: animalsMock }));
   }),
-  rest.delete(
-    `${apiUrl}${paths.animals}/${animalsMock[0].id}`,
-    (_req, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ animals: animalsMock }));
-    }
-  ),
 ];
 
 export const errorHandlers = [

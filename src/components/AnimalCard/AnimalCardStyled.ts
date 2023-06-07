@@ -52,6 +52,8 @@ const AnimalCardStyled = styled.article`
   }
 
   .delete-button {
+    display: flex;
+    align-items: center;
     background: ${(props) => props.theme.colors.quinary};
     border-radius: 12px;
     padding: 12px;
