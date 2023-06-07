@@ -3,7 +3,6 @@ import styled from "styled-components";
 const AnimalsPageStyled = styled.main`
   background-color: ${(props) => props.theme.colors.primaryBackground};
   padding: 32px 22px;
-  height: 100vh;
 
   .animals-container {
     &__title {

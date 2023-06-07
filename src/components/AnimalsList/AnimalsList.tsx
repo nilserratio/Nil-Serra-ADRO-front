@@ -1,9 +1,15 @@
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import AnimalCard from "../AnimalCard/AnimalCard";
 import AnimalsListStyled from "./AnimalsListStyled";
+import { removeAnimalActionCreator } from "../../store/animals/animalsSlice";
 
 const AnimalsList = (): React.ReactElement => {
   const animals = useAppSelector((state) => state.animals.animals);
+  const dispatch = useAppDispatch();
+
+  const deleteOnClick = (idAnimal: string) => {
+    dispatch(removeAnimalActionCreator(idAnimal));
+  };
 
   return (
     <AnimalsListStyled
@@ -16,6 +22,7 @@ const AnimalsList = (): React.ReactElement => {
             animal={animal}
             key={animal.id}
             isLazy={index === 0 ? "eager" : "lazy"}
+            actionOnClick={deleteOnClick}
           />
         </li>
       ))}
