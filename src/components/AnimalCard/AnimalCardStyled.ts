@@ -40,26 +40,29 @@ const AnimalCardStyled = styled.article`
 
     &__buttons {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 12px;
     }
   }
 
   .update-button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: ${(props) => props.theme.colors.quatenary};
     border-radius: 12px;
     padding: 12px;
-    margin-top: 10px;
+    color: ${(props) => props.theme.colors.primary};
   }
 
   .delete-button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: ${(props) => props.theme.colors.quinary};
     border-radius: 12px;
     padding: 12px;
-    margin-top: 10px;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 

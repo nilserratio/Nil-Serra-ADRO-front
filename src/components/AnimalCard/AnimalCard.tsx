@@ -36,26 +36,12 @@ const AnimalCard = ({
         </div>
         {isCardOwner && (
           <div className="animal-card__buttons">
-            <Button className="update-button" ariaLabel="update button">
-              <img
-                src="images/update-icon.svg"
-                alt="update button icon"
-                width={32}
-                height={32}
-              />
-            </Button>
+            <Button text="Update" className="update-button" />
             <Button
+              text="Delete"
               className="delete-button"
-              ariaLabel="button to delete an animal card"
               actionOnClick={() => actionOnClick(id)}
-            >
-              <img
-                src="images/delete-icon.svg"
-                alt="delete button icon"
-                width={32}
-                height={32}
-              />
-            </Button>
+            />
           </div>
         )}
       </div>
