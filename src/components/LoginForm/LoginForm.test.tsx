@@ -41,7 +41,7 @@ describe("Given a LoginForm component", () => {
   });
 
   describe("When it's rendered but the inputs fields username and password are empty", () => {
-    test("Then it should show a disable button with the text 'Sign in'", () => {
+    test("Then it should show a disabled button with the text 'Sign in'", () => {
       renderWithProviders(<LoginForm actionOnSubmit={mockOnSubmit} />);
 
       const signInButton = screen.getByRole("button", { name: signInText });

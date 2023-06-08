@@ -14,9 +14,10 @@ const animalFormLabels = [
   "Description",
 ];
 
-const userText = "test text";
-
 describe("Given a AnimalForm component", () => {
+  const userText = "test text";
+  const expectedText = "Create";
+
   animalFormLabels.forEach((expectedText) => {
     describe("When it is rendered", () => {
       test(`Then it should show a text field with the label '${expectedText}'`, () => {
@@ -31,13 +32,21 @@ describe("Given a AnimalForm component", () => {
 
   describe("When it is rendered", () => {
     test("Then it should show a button with the text 'Create'", () => {
-      const expectedText = "Create";
-
       renderWithProviders(<AnimalForm buttonText={expectedText} />);
 
-      const textField = screen.getByRole("button", { name: expectedText });
+      const createButton = screen.getByRole("button", { name: expectedText });
 
-      expect(textField).toBeInTheDocument();
+      expect(createButton).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's rendered but the inputs fields are empty", () => {
+    test("Then it should show a disabled button with the text 'Create'", () => {
+      renderWithProviders(<AnimalForm buttonText={expectedText} />);
+
+      const createButton = screen.getByRole("button", { name: expectedText });
+
+      expect(createButton).toBeDisabled();
     });
   });
 
@@ -85,29 +94,61 @@ describe("Given a AnimalForm component", () => {
 
   describe(`When it's rendered and the user selects the 'Female' option on the field '${animalFormLabels[1]}'`, () => {
     test(`Then it should show the text 'Female' in the field`, async () => {
-      const speciesTextField = "Female";
+      const genderTextField = "Female";
 
       renderWithProviders(<AnimalForm buttonText="" />);
 
       const textField = screen.getByLabelText(animalFormLabels[1]);
 
-      await userEvent.selectOptions(textField, speciesTextField);
+      await userEvent.selectOptions(textField, genderTextField);
 
-      expect(textField).toHaveValue(speciesTextField);
+      expect(textField).toHaveValue(genderTextField);
     });
   });
 
   describe(`When it's rendered and the user selects the 'Small Size' option on the field '${animalFormLabels[2]}'`, () => {
     test(`Then it should show the text 'Small Size' in the field`, async () => {
-      const speciesTextField = "Small Size";
+      const sizeTextField = "Small Size";
 
       renderWithProviders(<AnimalForm buttonText="" />);
 
       const textField = screen.getByLabelText(animalFormLabels[2]);
 
-      await userEvent.selectOptions(textField, speciesTextField);
+      await userEvent.selectOptions(textField, sizeTextField);
 
-      expect(textField).toHaveValue(speciesTextField);
+      expect(textField).toHaveValue(sizeTextField);
+    });
+  });
+
+  describe("When it's rendered and all the inputs fields are filled in", () => {
+    test("Then it should show an enabled button with the text 'Create'", async () => {
+      renderWithProviders(<AnimalForm buttonText="Create" />);
+
+      const speciesImputField = screen.getByLabelText(animalFormLabels[0]);
+      const genderImputField = screen.getByLabelText(animalFormLabels[1]);
+      const sizeImputField = screen.getByLabelText(animalFormLabels[2]);
+      const yearOfBirthImputField = screen.getByLabelText(animalFormLabels[3]);
+      const nameImputField = screen.getByLabelText(animalFormLabels[4]);
+      const racesImputField = screen.getByLabelText(animalFormLabels[5]);
+      const imageImputField = screen.getByLabelText(animalFormLabels[6]);
+      const descriptionImputField = screen.getByLabelText(animalFormLabels[7]);
+
+      const speciesTextField = "Dogs";
+      await userEvent.selectOptions(speciesImputField, speciesTextField);
+      const genderTextField = "Female";
+      await userEvent.selectOptions(genderImputField, genderTextField);
+      const sizeTextField = "Small Size";
+      await userEvent.selectOptions(sizeImputField, sizeTextField);
+      const speciesNumber = "2020";
+      await userEvent.type(yearOfBirthImputField, speciesNumber);
+      await userEvent.type(nameImputField, userText);
+      await userEvent.type(racesImputField, userText);
+      await userEvent.type(imageImputField, userText);
+      await userEvent.type(descriptionImputField, userText);
+
+      const createButton = screen.getByRole("button", { name: expectedText });
+
+      expect(createButton).toBeEnabled();
     });
   });
 });
