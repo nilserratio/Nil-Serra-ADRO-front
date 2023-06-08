@@ -32,6 +32,18 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
     });
   };
 
+  const racesInitialState: string[] = [];
+
+  const disabledButton =
+    animalData.name === "" ||
+    animalData.species === "" ||
+    animalData.races === racesInitialState ||
+    animalData.gender === "" ||
+    animalData.size === "" ||
+    animalData.yearOfBirth === "" ||
+    animalData.imageUrl === "" ||
+    animalData.description === "";
+
   return (
     <AnimalFormStyled className="animalForm-container" autoComplete="off">
       <div className="animalForm-container__control">
@@ -103,7 +115,7 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
         <input
           id="yearOfBirth"
           type="number"
-          value={animalData.yearOfBirth}
+          value={animalData.yearOfBirth?.toString()}
           onChange={onChangeData}
         />
       </div>
@@ -132,6 +144,7 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
         className="animalForm-container__submit"
         type="submit"
         text={buttonText}
+        isDisable={disabledButton}
       />
     </AnimalFormStyled>
   );
