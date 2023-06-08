@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
+import { vi } from "vitest";
 import {
   renderWithProviders,
   wrapWithRouter,
 } from "../../utils/testUtils/testUtils";
 import Layout from "./Layout";
-import { vi } from "vitest";
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -12,7 +12,7 @@ afterEach(() => {
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a Image with the alternative text 'Adro Osona logo with a dog footprint'", () => {
+    test("Then it should show a image with the alternative text 'Adro Osona logo with a dog footprint'", () => {
       const expectedAlternativeText = "Adro Osona logo with a dog footprint";
 
       renderWithProviders(wrapWithRouter(<Layout />));
@@ -24,7 +24,7 @@ describe("Given a Layout component", () => {
   });
 
   describe("When it's rendered but it's taking time to load the page", () => {
-    test("Then it should show a Loader component", () => {
+    test("Then it should show a loader modal", () => {
       const labelText = "loading";
 
       renderWithProviders(wrapWithRouter(<Layout />), {
@@ -38,7 +38,7 @@ describe("Given a Layout component", () => {
   });
 
   describe("When it's rendered but there is an error loading the home page", () => {
-    test("Then it should show a Feedback component", () => {
+    test("Then it should show a feedback modal", () => {
       const labelText = "feedback modal";
 
       renderWithProviders(wrapWithRouter(<Layout />), {
@@ -50,7 +50,7 @@ describe("Given a Layout component", () => {
       expect(feedbackModal).toBeInTheDocument();
     });
 
-    test("Then it should show a Feedback component with a Button with the text 'Acccpet'", () => {
+    test("Then it should show a feedback modal with a button with the text 'Accept'", () => {
       const buttonText = "Accept";
 
       renderWithProviders(wrapWithRouter(<Layout />), {

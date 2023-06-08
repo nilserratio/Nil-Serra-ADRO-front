@@ -13,6 +13,7 @@ import {
 import { paths } from "../../utils/paths/paths";
 import App from "../App/App";
 import { userLoggedStateMock } from "../../mocks/user/userMocks";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 
 describe("Given a Navbar component", () => {
   describe("When its rendered", () => {
@@ -37,6 +38,10 @@ describe("Given a Navbar component", () => {
         {
           path: paths.root,
           element: <App />,
+        },
+        {
+          path: paths.login,
+          element: <LoginPage />,
         },
       ];
 

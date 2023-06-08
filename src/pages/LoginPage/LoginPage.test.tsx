@@ -11,6 +11,7 @@ import {
   wrapWithRouter,
 } from "../../utils/testUtils/testUtils";
 import { paths } from "../../utils/paths/paths";
+import AnimalsPage from "../AnimalsPage/AnimalsPage";
 
 describe("Given a LoginPage component", () => {
   describe("When rendered", () => {
@@ -39,6 +40,10 @@ describe("Given a LoginPage component", () => {
         {
           path: paths.root,
           element: <LoginPage />,
+        },
+        {
+          path: paths.home,
+          element: <AnimalsPage />,
         },
       ];
 

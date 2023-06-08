@@ -40,7 +40,7 @@ describe("Given an AnimalsList component", () => {
 
   describe("When it's rendered with a list of 2 animals and the user clicks the delete button of it's own card", () => {
     test("Then it should a list without the deleted videogame", async () => {
-      const buttonAriaLabel = "button to delete an animal card";
+      const buttonText = "Delete";
 
       renderWithProviders(<AnimalsList />, {
         user: {
@@ -52,7 +52,7 @@ describe("Given an AnimalsList component", () => {
       });
 
       const heading = screen.getByRole("heading", { name: animalName });
-      const deleteButton = screen.getAllByLabelText(buttonAriaLabel);
+      const deleteButton = screen.getAllByRole("button", { name: buttonText });
 
       await userEvent.click(deleteButton[0]);
 

@@ -28,7 +28,7 @@ describe("Given a AnimalCard component", () => {
   });
 
   describe("When it's rendered with a logged user that owns the card, and the delete button is clicked", () => {
-    const buttonAriaLabel = "button to delete an animal card";
+    const buttonText = "Delete";
 
     test("Then it should the delete button", () => {
       renderWithProviders(
@@ -46,7 +46,7 @@ describe("Given a AnimalCard component", () => {
         }
       );
 
-      const deleteButton = screen.getByLabelText(buttonAriaLabel);
+      const deleteButton = screen.getByRole("button", { name: buttonText });
 
       expect(deleteButton).toBeInTheDocument();
     });
@@ -67,7 +67,7 @@ describe("Given a AnimalCard component", () => {
         }
       );
 
-      const deleteButton = screen.getByLabelText(buttonAriaLabel);
+      const deleteButton = screen.getByRole("button", { name: buttonText });
 
       await userEvent.click(deleteButton);
 
