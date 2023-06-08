@@ -92,9 +92,9 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
           onChange={onChangeData}
         >
           <option value="">--Select the size--</option>
-          <option value="Small">Small Size</option>
-          <option value="Medium">Medium Size</option>
-          <option value="Big">Big Size</option>
+          <option value="Small Size">Small Size</option>
+          <option value="Medium Size">Medium Size</option>
+          <option value="Big Size">Big Size</option>
         </select>
       </div>
 
