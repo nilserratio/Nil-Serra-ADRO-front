@@ -1,18 +1,14 @@
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppSelector } from "../../store";
 import AnimalCard from "../AnimalCard/AnimalCard";
 import AnimalsListStyled from "./AnimalsListStyled";
-import { removeAnimalActionCreator } from "../../store/animals/animalsSlice";
 import useAnimals from "../../hooks/animals/useAnimals";
 
 const AnimalsList = (): React.ReactElement => {
   const animals = useAppSelector((state) => state.animals.animals);
-  const dispatch = useAppDispatch();
   const { removeAnimal } = useAnimals();
 
   const deleteOnClick = async (idAnimal: string) => {
-    const isRemoved = await removeAnimal(idAnimal);
-
-    isRemoved && dispatch(removeAnimalActionCreator(idAnimal));
+    await removeAnimal(idAnimal);
   };
 
   return (

@@ -9,6 +9,7 @@ import {
   showLoaderActionCreator,
 } from "../../store/iu/uiSlice";
 import { feedbackMessages } from "../../utils/responseData/responseData";
+import { removeAnimalActionCreator } from "../../store/animals/animalsSlice";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -44,15 +45,16 @@ const useAnimals = () => {
 
   const removeAnimal = async (
     idAnimal: string
-  ): Promise<boolean | undefined> => {
+  ): Promise<number | undefined> => {
     dispatch(showLoaderActionCreator());
 
-    const isRemoved = true;
-
     try {
-      await axios.delete(`${apiUrl}${paths.animals}/${idAnimal}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { status } = await axios.delete(
+        `${apiUrl}${paths.animals}/${idAnimal}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       dispatch(hideLoaderActionCreator());
       dispatch(
@@ -62,7 +64,9 @@ const useAnimals = () => {
         })
       );
 
-      return isRemoved;
+      dispatch(removeAnimalActionCreator(idAnimal));
+
+      return status;
     } catch (error) {
       dispatch(hideLoaderActionCreator());
       dispatch(

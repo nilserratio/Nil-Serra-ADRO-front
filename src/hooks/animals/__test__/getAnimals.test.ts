@@ -4,6 +4,11 @@ import { animalsMock } from "../../../mocks/animals/animalsMocks";
 import { wrapper } from "../../../utils/testUtils/testUtils";
 import { server } from "../../../mocks/server";
 import { errorHandlers } from "../../../mocks/handlers";
+import { vi } from "vitest";
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("Given a getAnimals fucntion", () => {
   describe("When it's called", () => {
