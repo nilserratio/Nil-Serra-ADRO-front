@@ -29,7 +29,9 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
   }
 
-  input {
+  input, 
+  textarea, 
+  select {
     font-family: inherit;
     border: none;
   }

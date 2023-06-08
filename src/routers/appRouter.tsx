@@ -4,6 +4,7 @@ import App from "../components/App/App";
 import { paths } from "../utils/paths/paths";
 import { LazyHomePage, LazyLoginPage } from "./LazyPages";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import CreateAnimalPage from "../pages/CreateAnimalPage/CreateAnimalPage";
 
 const routes: RouteObject[] = [
   {
@@ -29,6 +30,10 @@ const routes: RouteObject[] = [
             <LazyLoginPage />
           </Suspense>
         ),
+      },
+      {
+        path: paths.create,
+        element: <CreateAnimalPage />,
       },
       {
         path: paths.notFound,
