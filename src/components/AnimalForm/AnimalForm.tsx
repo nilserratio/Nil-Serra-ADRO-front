@@ -34,7 +34,7 @@ const AnimalForm = (): React.ReactElement => {
       </div>
 
       <div className="animalForm-container__control">
-        <label htmlFor="sixe">Size</label>
+        <label htmlFor="size">Size</label>
         <select name="size" id="size">
           <option value="select">Select the size</option>
           <option value="small">Small Size</option>
