@@ -8,7 +8,7 @@ const CreateAnimalPage = (): React.ReactElement => {
       <span className="createAnimal-container__text">
         Add one animal to the adoption list
       </span>
-      <AnimalForm />
+      <AnimalForm buttonText="Create" />
     </CreateAnimalPageStyled>
   );
 };

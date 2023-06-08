@@ -17,7 +17,7 @@ describe("Given a AnimalForm component", () => {
   animalFormLabels.forEach((expectedText) => {
     describe("When it is rendered", () => {
       test(`Then it should show a text field with the label '${expectedText}'`, () => {
-        renderWithProviders(<AnimalForm />);
+        renderWithProviders(<AnimalForm buttonText="" />);
 
         const textField = screen.getByLabelText(expectedText);
 
@@ -30,7 +30,7 @@ describe("Given a AnimalForm component", () => {
     test("Then it should show a button with the text 'Create'", () => {
       const expectedText = "Create";
 
-      renderWithProviders(<AnimalForm />);
+      renderWithProviders(<AnimalForm buttonText={expectedText} />);
 
       const textField = screen.getByRole("button", { name: expectedText });
 
