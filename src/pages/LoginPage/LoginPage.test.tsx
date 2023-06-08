@@ -13,7 +13,7 @@ import {
 import { paths } from "../../utils/paths/paths";
 import AnimalsPage from "../AnimalsPage/AnimalsPage";
 
-describe("Given a LoginPage component", () => {
+describe("Given a LoginPage page component", () => {
   describe("When rendered", () => {
     test("Then it should show 'Sign in' inside a heading", () => {
       const headingText = "Sign in";
