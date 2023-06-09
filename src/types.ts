@@ -4,7 +4,7 @@ export interface UserCredentials {
 }
 
 export interface AnimalDataStructure {
-  id: string;
+  id?: string;
   name: string;
   species: string;
   races: string[];
@@ -13,5 +13,5 @@ export interface AnimalDataStructure {
   yearOfBirth: string;
   imageUrl: string;
   description: string;
-  user: string;
+  user?: string;
 }
