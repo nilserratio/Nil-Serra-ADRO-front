@@ -39,7 +39,7 @@ describe("Given an AnimalsList component", () => {
   });
 
   describe("When it's rendered with a list of 2 animals and the user clicks the delete button of it's own card", () => {
-    test("Then it should a list without the deleted videogame", async () => {
+    test("Then it should a list without the deleted animal", async () => {
       const buttonText = "Delete";
 
       renderWithProviders(<AnimalsList />, {

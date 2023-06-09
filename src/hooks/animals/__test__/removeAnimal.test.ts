@@ -23,14 +23,14 @@ describe("Given a removeAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const response = await removeAnimal(id);
+      const response = await removeAnimal(id as string);
 
       expect(response).toBe(expectedStatusCode);
     });
   });
 
   describe("When it's called with an animal id but can't connet to the Api Rest", () => {
-    test("Then it should show a error feedback with the message 'You have successfully deleted this card from the adoption list.'", async () => {
+    test("Then it should show a error feedback with the message 'There was an error on deleting the card from the adoption list. Try it again please.'", async () => {
       server.resetHandlers(...errorHandlers);
 
       const {
@@ -39,7 +39,7 @@ describe("Given a removeAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const response = await removeAnimal(id);
+      const response = await removeAnimal(id as string);
 
       expect(response).toBeUndefined();
     });
