@@ -23,7 +23,7 @@ describe("Given a removeAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const response = await removeAnimal(id);
+      const response = await removeAnimal(id as string);
 
       expect(response).toBe(expectedStatusCode);
     });
@@ -39,7 +39,7 @@ describe("Given a removeAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const response = await removeAnimal(id);
+      const response = await removeAnimal(id as string);
 
       expect(response).toBeUndefined();
     });

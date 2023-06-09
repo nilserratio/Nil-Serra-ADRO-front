@@ -15,7 +15,7 @@ describe("Given a removeAnimal reducer", () => {
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(
         currentAnimalsState,
-        removeAnimalActionCreator(animalsMock[0].id)
+        removeAnimalActionCreator(animalsMock[0].id as string)
       );
 
       expect(newAnimalState).toStrictEqual(expetedAnimalsState);

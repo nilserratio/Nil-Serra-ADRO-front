@@ -40,7 +40,7 @@ const AnimalCard = ({
             <Button
               text="Delete"
               className="delete-button"
-              actionOnClick={() => actionOnClick(id)}
+              actionOnClick={() => actionOnClick(id as string)}
             />
           </div>
         )}
