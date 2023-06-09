@@ -1,7 +1,16 @@
 import AnimalForm from "../../components/AnimalForm/AnimalForm";
+import { useAppDispatch } from "../../store";
+import { createAnimalActionCreator } from "../../store/animals/animalsSlice";
+import { AnimalDataStructure } from "../../types";
 import CreateAnimalPageStyled from "./CreateAnimalPageStyled";
 
 const CreateAnimalPage = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const actionOnSubmit = (newAnimalData: AnimalDataStructure) => {
+    dispatch(createAnimalActionCreator(newAnimalData));
+  };
+
   return (
     <CreateAnimalPageStyled className="createAnimal-container">
       <div>
@@ -10,7 +19,7 @@ const CreateAnimalPage = (): React.ReactElement => {
           Add one animal to the adoption list
         </span>
       </div>
-      <AnimalForm buttonText="Create" />
+      <AnimalForm buttonText="Create" actionOnSubmit={actionOnSubmit} />
     </CreateAnimalPageStyled>
   );
 };

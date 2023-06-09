@@ -5,10 +5,14 @@ import AnimalFormStyled from "./AnimalFormStyled";
 
 interface AnimalFormProps {
   buttonText: string;
+  actionOnSubmit: (newAnimalData: AnimalDataStructure) => void;
 }
 
-const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
-  const initialAnimalData: Partial<AnimalDataStructure> = {
+const AnimalForm = ({
+  buttonText,
+  actionOnSubmit,
+}: AnimalFormProps): React.ReactElement => {
+  const initialAnimalData: AnimalDataStructure = {
     name: "",
     species: "",
     races: [],
@@ -32,6 +36,12 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
     });
   };
 
+  const createOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    actionOnSubmit(animalData);
+    setAnimalData(initialAnimalData);
+  };
+
   const racesInitialState: string[] = [];
 
   const disabledButton =
@@ -45,7 +55,11 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
     animalData.description === "";
 
   return (
-    <AnimalFormStyled className="animalForm-container" autoComplete="off">
+    <AnimalFormStyled
+      className="animalForm-container"
+      autoComplete="off"
+      onSubmit={createOnSubmit}
+    >
       <div className="animalForm-container__control">
         <label htmlFor="name">Name</label>
         <input
