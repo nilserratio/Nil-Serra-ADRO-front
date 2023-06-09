@@ -7,4 +7,5 @@ export const paths: Paths = {
   home: "/home",
   user: "/user",
   animals: "/animals",
+  create: "/create-animal",
 };
