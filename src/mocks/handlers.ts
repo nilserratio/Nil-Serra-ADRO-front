@@ -20,6 +20,10 @@ export const handlers = [
       return res(ctx.status(200));
     }
   ),
+
+  rest.post(`${apiUrl}${paths.animals}/create`, (_req, res, ctx) => {
+    return res(ctx.status(201), ctx.json({ animal: animalsMock[0] }));
+  }),
 ];
 
 export const errorHandlers = [
@@ -37,4 +41,8 @@ export const errorHandlers = [
       return res(ctx.status(404));
     }
   ),
+
+  rest.post(`${apiUrl}${paths.animals}/create`, (_req, res, ctx) => {
+    return res(ctx.status(400));
+  }),
 ];

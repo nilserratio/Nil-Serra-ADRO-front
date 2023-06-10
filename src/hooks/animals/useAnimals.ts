@@ -81,14 +81,14 @@ const useAnimals = () => {
   };
 
   const createAnimal = async (
-    newAnimal: AnimalDataStructure
+    animal: AnimalDataStructure
   ): Promise<AnimalDataStructure | undefined> => {
     dispatch(showLoaderActionCreator());
 
     try {
       const { data } = await axios.post<{ animal: AnimalDataStructure }>(
         `${apiUrl}${paths.animals}/create`,
-        newAnimal,
+        animal,
         reqConfigAuthorization
       );
 
