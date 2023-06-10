@@ -30,3 +30,14 @@ export const animalsMock: AnimalDataStructure[] = [
     user: "646fa090b926156009746913",
   },
 ];
+
+export const animalFormLabels = [
+  "Species",
+  "Gender",
+  "Size",
+  "Year of Birth",
+  "Name",
+  "Races",
+  "Image URL",
+  "Description",
+];

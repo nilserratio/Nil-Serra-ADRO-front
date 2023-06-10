@@ -3,17 +3,7 @@ import userEvent from "@testing-library/user-event";
 import AnimalForm from "./AnimalForm";
 import { renderWithProviders } from "../../utils/testUtils/testUtils";
 import { vi } from "vitest";
-
-const animalFormLabels = [
-  "Species",
-  "Gender",
-  "Size",
-  "Year of Birth",
-  "Name",
-  "Races",
-  "Image URL",
-  "Description",
-];
+import { animalFormLabels } from "../../mocks/animals/animalsMocks";
 
 const actionOnSubmit = vi.fn();
 
@@ -170,6 +160,42 @@ describe("Given a AnimalForm component", () => {
       const createButton = screen.getByRole("button", { name: expectedText });
 
       expect(createButton).toBeEnabled();
+    });
+  });
+
+  describe("When it's rendered and all the inputs fields are filled in and the user clicks the button", () => {
+    test("Then the createOnSubmit function should be called", async () => {
+      renderWithProviders(
+        <AnimalForm buttonText="Create" actionOnSubmit={actionOnSubmit} />
+      );
+
+      const speciesImputField = screen.getByLabelText(animalFormLabels[0]);
+      const genderImputField = screen.getByLabelText(animalFormLabels[1]);
+      const sizeImputField = screen.getByLabelText(animalFormLabels[2]);
+      const yearOfBirthImputField = screen.getByLabelText(animalFormLabels[3]);
+      const nameImputField = screen.getByLabelText(animalFormLabels[4]);
+      const racesImputField = screen.getByLabelText(animalFormLabels[5]);
+      const imageImputField = screen.getByLabelText(animalFormLabels[6]);
+      const descriptionImputField = screen.getByLabelText(animalFormLabels[7]);
+
+      const speciesTextField = "Dogs";
+      await userEvent.selectOptions(speciesImputField, speciesTextField);
+      const genderTextField = "Female";
+      await userEvent.selectOptions(genderImputField, genderTextField);
+      const sizeTextField = "Small Size";
+      await userEvent.selectOptions(sizeImputField, sizeTextField);
+      const speciesNumber = "2020";
+      await userEvent.type(yearOfBirthImputField, speciesNumber);
+      await userEvent.type(nameImputField, userText);
+      await userEvent.type(racesImputField, userText);
+      await userEvent.type(imageImputField, userText);
+      await userEvent.type(descriptionImputField, userText);
+
+      const createButton = screen.getByRole("button", { name: expectedText });
+
+      await userEvent.click(createButton);
+
+      expect(actionOnSubmit).toHaveBeenCalled();
     });
   });
 });
