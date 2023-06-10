@@ -1,4 +1,5 @@
 import AnimalForm from "../../components/AnimalForm/AnimalForm";
+import useAnimals from "../../hooks/animals/useAnimals";
 import { useAppDispatch } from "../../store";
 import { createAnimalActionCreator } from "../../store/animals/animalsSlice";
 import { AnimalDataStructure } from "../../types";
@@ -6,9 +7,14 @@ import CreateAnimalPageStyled from "./CreateAnimalPageStyled";
 
 const CreateAnimalPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { createAnimal } = useAnimals();
 
-  const actionOnSubmit = (newAnimalData: AnimalDataStructure) => {
-    dispatch(createAnimalActionCreator(newAnimalData));
+  const actionOnSubmit = async (newAnimalData: AnimalDataStructure) => {
+    const animal = await createAnimal(newAnimalData);
+
+    if (animal) {
+      dispatch(createAnimalActionCreator(animal));
+    }
   };
 
   return (

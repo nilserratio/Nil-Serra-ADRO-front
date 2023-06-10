@@ -15,7 +15,7 @@ const AnimalForm = ({
   const initialAnimalData: AnimalDataStructure = {
     name: "",
     species: "",
-    races: [],
+    races: "",
     gender: "",
     size: "",
     yearOfBirth: "",
@@ -42,12 +42,10 @@ const AnimalForm = ({
     setAnimalData(initialAnimalData);
   };
 
-  const racesInitialState: string[] = [];
-
   const disabledButton =
     animalData.name === "" ||
     animalData.species === "" ||
-    animalData.races === racesInitialState ||
+    animalData.races === "" ||
     animalData.gender === "" ||
     animalData.size === "" ||
     animalData.yearOfBirth === "" ||
@@ -79,9 +77,9 @@ const AnimalForm = ({
           onChange={onChangeData}
         >
           <option value="">--Select the species--</option>
-          <option value="Dogs">Dogs</option>
-          <option value="Cats">Cats</option>
-          <option value="Others">Others</option>
+          <option value="Dogs">Dog</option>
+          <option value="Cats">Cat</option>
+          <option value="Others">Other</option>
         </select>
       </div>
 

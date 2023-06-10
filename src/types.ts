@@ -7,7 +7,7 @@ export interface AnimalDataStructure {
   id?: string;
   name: string;
   species: string;
-  races: string[];
+  races: string;
   gender: string;
   size: string;
   yearOfBirth: string;
