@@ -5,13 +5,17 @@ import AnimalFormStyled from "./AnimalFormStyled";
 
 interface AnimalFormProps {
   buttonText: string;
+  actionOnSubmit: (newAnimalData: AnimalDataStructure) => void;
 }
 
-const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
-  const initialAnimalData: Partial<AnimalDataStructure> = {
+const AnimalForm = ({
+  buttonText,
+  actionOnSubmit,
+}: AnimalFormProps): React.ReactElement => {
+  const initialAnimalData: AnimalDataStructure = {
     name: "",
     species: "",
-    races: [],
+    races: "",
     gender: "",
     size: "",
     yearOfBirth: "",
@@ -32,12 +36,16 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
     });
   };
 
-  const racesInitialState: string[] = [];
+  const createOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    actionOnSubmit(animalData);
+    setAnimalData(initialAnimalData);
+  };
 
   const disabledButton =
     animalData.name === "" ||
     animalData.species === "" ||
-    animalData.races === racesInitialState ||
+    animalData.races === "" ||
     animalData.gender === "" ||
     animalData.size === "" ||
     animalData.yearOfBirth === "" ||
@@ -45,7 +53,11 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
     animalData.description === "";
 
   return (
-    <AnimalFormStyled className="animalForm-container" autoComplete="off">
+    <AnimalFormStyled
+      className="animalForm-container"
+      autoComplete="off"
+      onSubmit={createOnSubmit}
+    >
       <div className="animalForm-container__control">
         <label htmlFor="name">Name</label>
         <input
@@ -65,9 +77,9 @@ const AnimalForm = ({ buttonText }: AnimalFormProps): React.ReactElement => {
           onChange={onChangeData}
         >
           <option value="">--Select the species--</option>
-          <option value="Dogs">Dogs</option>
-          <option value="Cats">Cats</option>
-          <option value="Others">Others</option>
+          <option value="Dogs">Dog</option>
+          <option value="Cats">Cat</option>
+          <option value="Others">Other</option>
         </select>
       </div>
 

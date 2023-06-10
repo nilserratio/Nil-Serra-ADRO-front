@@ -42,6 +42,7 @@ const AnimalCardStyled = styled.article`
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: 10px;
     }
   }
 
@@ -49,10 +50,12 @@ const AnimalCardStyled = styled.article`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${(props) => props.theme.colors.quatenary};
+    background: ${(props) => props.theme.colors.primary};
     border-radius: 12px;
     padding: 12px;
-    color: ${(props) => props.theme.colors.primary};
+    border: solid;
+    border-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary};
   }
 
   .delete-button {

@@ -5,7 +5,7 @@ export const animalsMock: AnimalDataStructure[] = [
     id: "001",
     name: "Bella",
     species: "dog",
-    races: ["labrador"],
+    races: "labrador",
     gender: "Female",
     size: "Medium Size",
     yearOfBirth: "2019",
@@ -19,7 +19,7 @@ export const animalsMock: AnimalDataStructure[] = [
     id: "002",
     name: "Max",
     species: "dog",
-    races: ["golden-retriever", "poodle"],
+    races: "golden-retriever, poodle",
     gender: "Male",
     size: "Medium Size",
     yearOfBirth: "2017",
@@ -29,4 +29,15 @@ export const animalsMock: AnimalDataStructure[] = [
       "Max is a handsome mixed breed dog, born in 2017. He is a friendly and energetic companion who loves to play fetch and go for runs. Max gets along well with other dogs and enjoys socializing at the dog park. He is looking for an active family who can provide him with plenty of exercise and mental stimulation. Max will bring lots of happiness and fun to his new home.",
     user: "646fa090b926156009746913",
   },
+];
+
+export const animalFormLabels = [
+  "Species",
+  "Gender",
+  "Size",
+  "Year of Birth",
+  "Name",
+  "Races",
+  "Image URL",
+  "Description",
 ];

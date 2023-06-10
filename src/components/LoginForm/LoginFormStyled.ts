@@ -24,7 +24,7 @@ const LoginFormStyled = styled.form`
 
     &__submit {
       padding: 16px 32px;
-      margin-top: 10px;
+      margin-top: 26px;
       border-radius: 12px;
       background-color: ${(props) => props.theme.colors.secondary};
       color: ${(props) => props.theme.colors.primary};
