@@ -17,6 +17,10 @@ const useAnimals = () => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.user);
 
+  const reqConfigAuthorization = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
   const getAnimals = useCallback(async (): Promise<
     AnimalDataStructure[] | undefined
   > => {
@@ -51,9 +55,7 @@ const useAnimals = () => {
     try {
       const { status } = await axios.delete(
         `${apiUrl}${paths.animals}/${idAnimal}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        reqConfigAuthorization
       );
 
       dispatch(hideLoaderActionCreator());
@@ -78,7 +80,39 @@ const useAnimals = () => {
     }
   };
 
-  return { getAnimals, removeAnimal };
+  const createAnimal = async (
+    newAnimal: AnimalDataStructure
+  ): Promise<AnimalDataStructure | undefined> => {
+    dispatch(showLoaderActionCreator());
+
+    try {
+      const { data } = await axios.post<{ animal: AnimalDataStructure }>(
+        `${apiUrl}${paths.animals}/create`,
+        newAnimal,
+        reqConfigAuthorization
+      );
+
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          message: feedbackMessages.createOk,
+        })
+      );
+
+      return data.animal;
+    } catch (error) {
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: feedbackMessages.createFailed,
+        })
+      );
+    }
+  };
+
+  return { getAnimals, removeAnimal, createAnimal };
 };
 
 export default useAnimals;
