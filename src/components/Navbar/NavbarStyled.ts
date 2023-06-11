@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const NavbarStyled = styled.nav`
   display: flex;
-  gap: 20px;
+  gap: 12px;
   align-items: center;
 
   .navbar-container {

@@ -41,7 +41,7 @@ const AnimalsList = (): React.ReactElement => {
           />
         </li>
       ))}
-      <Pagination />
+      <Pagination className="animalsList-container__pagination" />
     </AnimalsListStyled>
   );
 };
