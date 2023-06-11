@@ -51,11 +51,6 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
   }
-
-  img{
-    max-width: 100%;
-  }
-
 `;
 
 export default GlobalStyle;

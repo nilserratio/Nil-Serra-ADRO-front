@@ -7,12 +7,12 @@ const AnimalCardStyled = styled.article`
   border: solid;
   border-color: ${(props) => props.theme.colors.secondaryBackground};
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: ${(props) => props.theme.colors.primary};
 
   .animal-card {
     &__image {
-      border-radius: 8px 8px 0 0;
+      border-radius: 12px 12px 0 0;
       object-fit: cover;
     }
 
@@ -56,6 +56,7 @@ const AnimalCardStyled = styled.article`
     border: solid;
     border-color: ${(props) => props.theme.colors.tertiary};
     color: ${(props) => props.theme.colors.secondary};
+    letter-spacing: 1px;
   }
 
   .delete-button {
@@ -66,6 +67,7 @@ const AnimalCardStyled = styled.article`
     border-radius: 12px;
     padding: 12px;
     color: ${(props) => props.theme.colors.primary};
+    letter-spacing: 1px;
   }
 `;
 

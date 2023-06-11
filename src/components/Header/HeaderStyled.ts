@@ -5,7 +5,7 @@ const HeaderStyled = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 22px;
+  padding: 12px 22px;
   min-width: 320px;
   background-color: ${(prop) => prop.theme.colors.primary};
 `;

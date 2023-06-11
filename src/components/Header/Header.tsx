@@ -9,10 +9,10 @@ const Header = (): React.ReactElement => {
       <NavLink to={paths.home}>
         <img
           className="header-container__logo"
-          src="images/adro-logo.svg"
+          src="images/adro-logo.webp"
           alt="Adro Osona logo with a dog footprint"
-          width={133}
-          height={76}
+          width={130}
+          height={90}
         />
       </NavLink>
       <Navbar />
