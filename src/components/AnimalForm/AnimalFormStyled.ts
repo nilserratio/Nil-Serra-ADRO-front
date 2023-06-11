@@ -26,6 +26,17 @@ const AnimalFormStyled = styled.form`
       padding: 16px;
       border-radius: 12px;
       background-color: ${(props) => props.theme.colors.primary};
+      appearance: none;
+      -moz-appearance: none;
+      background-image: url(/images/icons/select-down.svg);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 10px;
+
+      &:hover,
+      :focus {
+        background-image: url(/images/icons/select-up.svg);
+      }
     }
 
     &__control > textarea {

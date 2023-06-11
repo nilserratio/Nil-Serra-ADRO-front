@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-const AnimalsListStyled = styled.ul`
-  width: 100%;
+const PaginationStyled = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
-  margin-top: 30px;
+  gap: 24px;
+  width: 100%;
 
-  .animalsList-container {
-    &__create {
+  .pagination-container {
+    &__button {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -26,4 +25,4 @@ const AnimalsListStyled = styled.ul`
   }
 `;
 
-export default AnimalsListStyled;
+export default PaginationStyled;
