@@ -5,6 +5,7 @@ import useAnimals from "../../hooks/animals/useAnimals";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import { paths } from "../../utils/paths/paths";
+import Pagination from "../Pagination/Pagination";
 
 const AnimalsList = (): React.ReactElement => {
   const animals = useAppSelector((state) => state.animals.animals);
@@ -27,7 +28,7 @@ const AnimalsList = (): React.ReactElement => {
           className="animalsList-container__create"
           actionOnClick={() => navigate(paths.create)}
         >
-          <img src="/images/add-icon.svg" alt="add animal icon" />
+          <img src="/images/icons/add-icon.svg" alt="add animal icon" />
         </Button>
       )}
       {animals.map((animal, index) => (
@@ -40,6 +41,7 @@ const AnimalsList = (): React.ReactElement => {
           />
         </li>
       ))}
+      <Pagination />
     </AnimalsListStyled>
   );
 };

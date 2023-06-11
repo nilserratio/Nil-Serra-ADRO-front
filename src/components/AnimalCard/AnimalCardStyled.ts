@@ -54,7 +54,7 @@ const AnimalCardStyled = styled.article`
     border-radius: 12px;
     padding: 12px;
     border: solid;
-    border-color: ${(props) => props.theme.colors.secondary};
+    border-color: ${(props) => props.theme.colors.tertiary};
     color: ${(props) => props.theme.colors.secondary};
   }
 

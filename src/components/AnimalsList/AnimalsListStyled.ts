@@ -17,6 +17,9 @@ const AnimalsListStyled = styled.ul`
       padding: 8px 24px;
       width: 100%;
       max-width: 276px;
+      border: solid;
+      border-color: ${(props) => props.theme.colors.secondaryBackground};
+      border-width: 1px;
       border-radius: 12px;
       background: ${(props) => props.theme.colors.primary};
     }
