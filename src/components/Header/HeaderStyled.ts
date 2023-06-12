@@ -12,6 +12,7 @@ const HeaderStyled = styled.header`
   .header-container {
     &__anchor.active {
       height: 90px;
+      width: 130px;
     }
   }
 `;
