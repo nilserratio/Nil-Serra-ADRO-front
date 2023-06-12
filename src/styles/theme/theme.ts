@@ -10,7 +10,7 @@ const theme: DefaultTheme = {
     quinary: "#ff7b7b",
     primaryBackground: "#f6f3f1",
     secondaryBackground: "#d9d9d9",
-    error: "#db4324",
+    error: "#9F2F19",
     succeed: "#3d9a50",
   },
 
