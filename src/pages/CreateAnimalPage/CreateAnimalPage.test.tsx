@@ -8,6 +8,7 @@ import {
 import { animalFormLabels } from "../../mocks/animals/animalsMocks";
 import { store } from "../../store";
 import { feedbackMessages } from "../../utils/responseData/responseData";
+import { vi } from "vitest";
 
 describe("Given a CreateAnimalPage page component", () => {
   describe("When it's rendered", () => {
@@ -31,6 +32,8 @@ describe("Given a CreateAnimalPage page component", () => {
       const expectedFeedbackMessage = feedbackMessages.createOk;
 
       renderWithProviders(wrapWithRouter(<CreateAnimalPage />));
+
+      window.scrollTo = vi.fn().mockImplementation(() => ({}));
 
       const speciesImputField = screen.getByLabelText(animalFormLabels[0]);
       const genderImputField = screen.getByLabelText(animalFormLabels[1]);

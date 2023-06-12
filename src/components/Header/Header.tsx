@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const Header = (): React.ReactElement => {
   return (
     <HeaderStyled className="header-container">
-      <NavLink to={paths.home}>
+      <NavLink to={paths.home} className="header-container__anchor">
         <img
           className="header-container__logo"
           src="images/adro-logo.webp"

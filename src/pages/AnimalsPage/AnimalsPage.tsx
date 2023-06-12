@@ -17,7 +17,7 @@ const AnimalsPage = (): React.ReactElement => {
   const [skip, setSkip] = useState(0);
   const [totalAnimals, setTotalAnimals] = useState(0);
   const [page, setPage] = useState(1);
-  const limit = 2;
+  const limit = 6;
 
   const nextPage = () => {
     setSkip(skip + limit);

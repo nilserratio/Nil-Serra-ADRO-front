@@ -14,6 +14,7 @@ const CreateAnimalPage = (): React.ReactElement => {
 
     if (animal) {
       dispatch(createAnimalActionCreator(animal));
+      window.scrollTo(0, 0);
     }
   };
 

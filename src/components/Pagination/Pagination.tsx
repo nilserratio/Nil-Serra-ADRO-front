@@ -3,9 +3,9 @@ import PaginationStyled from "./PaginationStyled";
 
 interface PaginationProps {
   className?: string;
-  nextOnClick: () => void;
-  previousOnClick: () => void;
-  page: number;
+  nextOnClick?: () => void;
+  previousOnClick?: () => void;
+  page?: number;
   totalAnimals: number;
   limit: number;
 }
@@ -26,9 +26,6 @@ const Pagination = ({
 
   return (
     <PaginationStyled className={className}>
-      <span>
-        {page} / {totalPages}
-      </span>
       <Button
         className="pagination-button"
         text="Previous"
@@ -42,6 +39,9 @@ const Pagination = ({
           height={32}
         />
       </Button>
+      <span>
+        {page} / {totalPages}
+      </span>
       <Button
         className="pagination-button"
         text="Next"
