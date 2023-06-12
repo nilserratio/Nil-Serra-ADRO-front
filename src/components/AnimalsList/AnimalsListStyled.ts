@@ -6,7 +6,7 @@ const AnimalsListStyled = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  margin-top: 30px;
+  margin-top: 8px;
 `;
 
 export default AnimalsListStyled;

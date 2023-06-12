@@ -7,7 +7,7 @@ describe("Given a Pagination component", () => {
     test("Then it should show a 'Previous' button", () => {
       const previousButtonText = "Previous previous icon";
 
-      renderWithProviders(<Pagination />);
+      renderWithProviders(<Pagination limit={1} totalAnimals={1} />);
 
       const previousButton = screen.getByRole("button", {
         name: previousButtonText,
@@ -19,7 +19,7 @@ describe("Given a Pagination component", () => {
     test("Then it should show a 'Next' button", () => {
       const nextButtonText = "Next next icon";
 
-      renderWithProviders(<Pagination />);
+      renderWithProviders(<Pagination limit={1} totalAnimals={1} />);
 
       const nextButton = screen.getByRole("button", {
         name: nextButtonText,

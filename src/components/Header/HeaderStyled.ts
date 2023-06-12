@@ -5,9 +5,15 @@ const HeaderStyled = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 22px;
+  padding: 8px 22px;
   min-width: 320px;
   background-color: ${(prop) => prop.theme.colors.primary};
+
+  .header-container {
+    &__anchor.active {
+      height: 90px;
+    }
+  }
 `;
 
 export default HeaderStyled;

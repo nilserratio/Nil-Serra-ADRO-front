@@ -4,7 +4,7 @@ const PaginationStyled = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   width: 100%;
   margin-top: 10px;
 

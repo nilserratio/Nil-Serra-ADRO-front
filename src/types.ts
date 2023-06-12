@@ -1,3 +1,5 @@
+import { AnimalsStateStructure } from "./store/animals/types";
+
 export interface UserCredentials {
   username: string;
   password: string;
@@ -14,4 +16,8 @@ export interface AnimalDataStructure {
   imageUrl: string;
   description: string;
   user?: string;
+}
+
+export interface AnimalsResponseStructure extends AnimalsStateStructure {
+  totalAnimals: number;
 }

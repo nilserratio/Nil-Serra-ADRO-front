@@ -10,6 +10,9 @@ beforeEach(() => {
   vi.clearAllMocks();
 });
 
+const skip = 1;
+const limit = 10;
+
 describe("Given a getAnimals fucntion", () => {
   describe("When it's called", () => {
     test("Then it should return a list on animals", async () => {
@@ -19,9 +22,9 @@ describe("Given a getAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const animals = await getAnimals();
+      const animals = await getAnimals(skip, limit);
 
-      const expectedAnimals = animalsMock;
+      const expectedAnimals = { animals: animalsMock, totalAnimals: undefined };
 
       expect(animals).toStrictEqual(expectedAnimals);
     });
@@ -37,7 +40,7 @@ describe("Given a getAnimals fucntion", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      const animals = await getAnimals();
+      const animals = await getAnimals(skip, limit);
 
       expect(animals).toBeUndefined();
     });

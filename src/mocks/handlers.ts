@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { tokenMock } from "./user/userMocks";
 import { paths } from "../utils/paths/paths";
-import { animalsMock } from "./animals/animalsMocks";
+import { animalsMock, animalsPaginationMock } from "./animals/animalsMocks";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -44,5 +44,21 @@ export const errorHandlers = [
 
   rest.post(`${apiUrl}${paths.animals}/create`, (_req, res, ctx) => {
     return res(ctx.status(400));
+  }),
+];
+
+export const paginationHandlers = [
+  rest.get(`${apiUrl}${paths.animals}`, (req, res, ctx) => {
+    const searchParams = req.url.searchParams;
+    searchParams.set("skip", "0");
+    searchParams.set("limit", "6");
+
+    return res(
+      ctx.status(200),
+      ctx.json({
+        animals: animalsPaginationMock,
+        totalAnimals: animalsPaginationMock.length,
+      })
+    );
   }),
 ];
