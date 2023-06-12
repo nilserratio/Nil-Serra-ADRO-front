@@ -6,6 +6,7 @@ const PaginationStyled = styled.section`
   align-items: center;
   gap: 24px;
   width: 100%;
+  margin-top: 10px;
 
   .pagination-button {
     display: flex;
