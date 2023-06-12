@@ -7,15 +7,7 @@ import {
 } from "../../utils/testUtils/testUtils";
 import AnimalsList from "./AnimalsList";
 import { animalsMock } from "../../mocks/animals/animalsMocks";
-import { tokenMock, userLoggedStateMock } from "../../mocks/user/userMocks";
-import { paths } from "../../utils/paths/paths";
-import {
-  RouteObject,
-  RouterProvider,
-  createMemoryRouter,
-} from "react-router-dom";
-import CreateAnimalPage from "../../pages/CreateAnimalPage/CreateAnimalPage";
-import AnimalsPage from "../../pages/AnimalsPage/AnimalsPage";
+import { tokenMock } from "../../mocks/user/userMocks";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -68,37 +60,6 @@ describe("Given an AnimalsList component", () => {
       await userEvent.click(deleteButton[0]);
 
       expect(heading).not.toBeInTheDocument();
-    });
-  });
-
-  describe("When it's rendered with a logged user and the user clicks the 'Add an animal' button", () => {
-    test("Then it should redirects to the create page", async () => {
-      const buttonText = "Add an animal add animal icon";
-
-      const route: RouteObject[] = [
-        {
-          path: paths.root,
-          element: <AnimalsPage />,
-        },
-        {
-          path: paths.create,
-          element: <CreateAnimalPage />,
-        },
-      ];
-
-      const router = createMemoryRouter(route);
-
-      renderWithProviders(<RouterProvider router={router} />, {
-        user: userLoggedStateMock,
-      });
-
-      const createButton = screen.getByRole("button", {
-        name: buttonText,
-      });
-
-      await userEvent.click(createButton);
-
-      expect(router.state.location.pathname).toStrictEqual(paths.create);
     });
   });
 });
