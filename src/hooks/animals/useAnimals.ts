@@ -1,6 +1,6 @@
 import axios from "axios";
 import { paths } from "../../utils/paths/paths";
-import { AnimalDataStructure } from "../../types";
+import { AnimalDataStructure, AnimalsResponseStructure } from "../../types";
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
@@ -21,31 +21,35 @@ const useAnimals = () => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const getAnimals = useCallback(async (): Promise<
-    AnimalDataStructure[] | undefined
-  > => {
-    dispatch(showLoaderActionCreator());
+  const getAnimals = useCallback(
+    async (
+      skip: number,
+      limit: number
+    ): Promise<AnimalsResponseStructure | undefined> => {
+      dispatch(showLoaderActionCreator());
 
-    try {
-      const {
-        data: { animals },
-      } = await axios.get<{ animals: AnimalDataStructure[] }>(
-        `${apiUrl}${paths.animals}`
-      );
+      try {
+        const {
+          data: { animals, totalAnimals },
+        } = await axios.get<AnimalsResponseStructure>(
+          `${apiUrl}${paths.animals}?skip=${skip}&limit=${limit}`
+        );
 
-      dispatch(hideLoaderActionCreator());
+        dispatch(hideLoaderActionCreator());
 
-      return animals;
-    } catch (error) {
-      dispatch(hideLoaderActionCreator());
-      dispatch(
-        showFeedbackActionCreator({
-          isError: true,
-          message: feedbackMessages.error,
-        })
-      );
-    }
-  }, [dispatch]);
+        return { animals, totalAnimals };
+      } catch (error) {
+        dispatch(hideLoaderActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            isError: true,
+            message: feedbackMessages.error,
+          })
+        );
+      }
+    },
+    [dispatch]
+  );
 
   const removeAnimal = async (
     idAnimal: string

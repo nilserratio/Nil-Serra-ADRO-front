@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AnimalsPageStyled from "./AnimalsPageStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadAnimalsActionCreator } from "../../store/animals/animalsSlice";
@@ -14,25 +14,47 @@ const AnimalsPage = (): React.ReactElement => {
   const { getAnimals } = useAnimals();
   const { isLogged } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
+  const [skip, setSkip] = useState(0);
+  const [totalAnimals, setTotalAnimals] = useState(0);
+  const [page, setPage] = useState(1);
+  const limit = 2;
+
+  const nextPage = () => {
+    setSkip(skip + limit);
+    setPage(page + 1);
+    window.scrollTo(0, 0);
+  };
+
+  const previousPage = () => {
+    setSkip(skip - limit);
+    setPage(page - 1);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     (async () => {
-      const animalsList = await getAnimals();
+      const animalsList = await getAnimals(skip, limit);
       if (animalsList) {
-        dispatch(loadAnimalsActionCreator(animalsList));
+        const { animals, totalAnimals } = animalsList;
 
-        const firstAnimalImage = animalsList[0].imageUrl;
-        const preconnectImage = document.createElement("link");
-        preconnectImage.rel = "preload";
-        preconnectImage.as = "image";
-        preconnectImage.href = firstAnimalImage;
+        dispatch(loadAnimalsActionCreator(animals));
 
-        const parentElement = document.head;
-        const firstChild = parentElement.firstChild;
-        parentElement.insertBefore(preconnectImage, firstChild);
+        setTotalAnimals(totalAnimals);
+
+        if (animals.length > 0) {
+          const firstAnimalImage = animals[0].imageUrl;
+          const preconnectImage = document.createElement("link");
+          preconnectImage.rel = "preload";
+          preconnectImage.as = "image";
+          preconnectImage.href = firstAnimalImage;
+
+          const parentElement = document.head;
+          const firstChild = parentElement.firstChild;
+          parentElement.insertBefore(preconnectImage, firstChild);
+        }
       }
     })();
-  }, [dispatch, getAnimals]);
+  }, [dispatch, getAnimals, skip]);
 
   return (
     <AnimalsPageStyled className="animals-container">
@@ -50,7 +72,14 @@ const AnimalsPage = (): React.ReactElement => {
         </Button>
       )}
       <AnimalsList />
-      <Pagination className="animals-container__pagination" />
+      <Pagination
+        className="animals-container__pagination"
+        previousOnClick={previousPage}
+        nextOnClick={nextPage}
+        totalAnimals={totalAnimals}
+        limit={limit}
+        page={page}
+      />
     </AnimalsPageStyled>
   );
 };

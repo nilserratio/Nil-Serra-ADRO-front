@@ -3,12 +3,38 @@ import PaginationStyled from "./PaginationStyled";
 
 interface PaginationProps {
   className?: string;
+  nextOnClick: () => void;
+  previousOnClick: () => void;
+  page: number;
+  totalAnimals: number;
+  limit: number;
 }
 
-const Pagination = ({ className }: PaginationProps): React.ReactElement => {
+const Pagination = ({
+  className,
+  nextOnClick,
+  page,
+  previousOnClick,
+  limit,
+  totalAnimals,
+}: PaginationProps): React.ReactElement => {
+  const totalPages = Math.ceil(totalAnimals / limit);
+
+  const isPreviousDisable = page === 1;
+
+  const isNextDisable = page === totalPages;
+
   return (
     <PaginationStyled className={className}>
-      <Button className="pagination-button" text="Previous">
+      <span>
+        {page} / {totalPages}
+      </span>
+      <Button
+        className="pagination-button"
+        text="Previous"
+        actionOnClick={previousOnClick}
+        isDisable={isPreviousDisable}
+      >
         <img
           src="/images/icons/previous-icon.svg"
           alt="previous icon"
@@ -16,7 +42,12 @@ const Pagination = ({ className }: PaginationProps): React.ReactElement => {
           height={32}
         />
       </Button>
-      <Button className="pagination-button" text="Next">
+      <Button
+        className="pagination-button"
+        text="Next"
+        actionOnClick={nextOnClick}
+        isDisable={isNextDisable}
+      >
         <img
           src="/images/icons/next-icon.svg"
           alt="next icon"
