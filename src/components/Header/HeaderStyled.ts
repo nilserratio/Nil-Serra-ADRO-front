@@ -14,6 +14,11 @@ const HeaderStyled = styled.header`
       height: 90px;
       width: 130px;
     }
+
+    &__anchor {
+      height: 90px;
+      width: 130px;
+    }
   }
 `;
 
