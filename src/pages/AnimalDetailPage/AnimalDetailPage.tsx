@@ -1,36 +1,56 @@
-import Button from "../../components/Button/Button";
+import useAnimals from "../../hooks/animals/useAnimals";
 import AnimalDetailPageStyled from "./AnimalDetailPageStyled";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { Link, useParams } from "react-router-dom";
+import { loadSelectedAnimalActionCreator } from "../../store/animals/animalsSlice";
+import { AnimalDataStructure } from "../../types";
+import { useEffect } from "react";
 
 const AnimalDetailPage = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+  const { getAnimalById } = useAnimals();
+  const { idAnimal } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      if (idAnimal) {
+        const animal = await getAnimalById(idAnimal);
+
+        dispatch(
+          loadSelectedAnimalActionCreator(animal as AnimalDataStructure)
+        );
+      }
+    })();
+  }, [idAnimal, dispatch, getAnimalById]);
+
+  const animal = useAppSelector((state) => state.animals.animalById);
+
+  window.scrollTo(0, 0);
+
   return (
     <AnimalDetailPageStyled>
       <img
-        src="https://cdn.discordapp.com/attachments/1114238887548698687/1115308388017000478/bella-440.webp"
-        alt="Bella dog on a green field"
+        src={animal?.imageUrl}
+        alt={`A ${animal?.species} named ${animal?.name}`}
       />
       <div className="details-container">
-        <h1 className="details-container__tittle">Bella</h1>
+        <h1 className="details-container__tittle">{animal?.name}</h1>
         <div className="details-container__info">
-          <span>Female</span>
-          <span>Medium Size</span>
+          <span>{animal?.gender}</span>
+          <span>{animal?.size}</span>
         </div>
-        <span className="details-container__races">
-          Border Collie, German Shepherd
+        <span className="details-container__races">{animal?.races}</span>
+        <p>{animal?.description}</p>
+        <span className="details-container__years">
+          Year of birth: {animal?.yearOfBirth}
         </span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          arcu massa, rhoncus a ornare ut, aliquet vitae est. Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit. Morbi ex eros, dignissim vitae
-          pulvinar sed, interdum ut nunc. Donec auctor, sem iaculis maximus
-          imperdiet, augue nisl suscipit nunc, vitae viverra mauris risus ut
-          velit. Phasellus non fringilla eros. Mauris consequat blandit dui
-          venenatis commodo. Quisque diam dolor, tempus a elit non, eleifend
-          posuere libero. Suspendisse in turpis mattis, efficitur dui vel,
-          accumsan purus.
-        </p>
-        <span className="details-container__years">7 years old</span>
+        <Link
+          className="details-container__button"
+          to="https://adrosona.wixsite.com/adrosona"
+        >
+          Adopt me!
+        </Link>
       </div>
-      <Button className="details-container__button" text="Adopt me!" />
     </AnimalDetailPageStyled>
   );
 };

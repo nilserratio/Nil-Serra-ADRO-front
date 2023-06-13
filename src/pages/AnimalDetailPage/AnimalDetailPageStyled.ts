@@ -27,25 +27,29 @@ const AnimalDetailPageStyled = styled.main`
       padding: 8px 24px;
       background: ${(props) => props.theme.colors.primary};
       border-radius: 12px;
+      border: 1px solid rgb(217, 217, 217);
     }
 
     &__races {
       padding: 8px 24px;
       background: ${(props) => props.theme.colors.primary};
       border-radius: 12px;
+      border: 1px solid rgb(217, 217, 217);
     }
 
     &__years {
       padding: 8px 24px;
       background: ${(props) => props.theme.colors.primary};
       border-radius: 12px;
+      border: 1px solid rgb(217, 217, 217);
       text-align: center;
     }
 
     &__button {
       padding: 16px 32px;
-      margin-top: 26px;
+      margin-top: 12px;
       border-radius: 12px;
+      text-align: center;
       background-color: ${(props) => props.theme.colors.secondary};
       color: ${(props) => props.theme.colors.primary};
       max-width: 400px;
