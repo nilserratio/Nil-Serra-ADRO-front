@@ -116,7 +116,33 @@ const useAnimals = () => {
     }
   };
 
-  return { getAnimals, removeAnimal, createAnimal };
+  const getAnimalById = async (
+    idAnimal: string
+  ): Promise<AnimalDataStructure | undefined> => {
+    dispatch(showLoaderActionCreator());
+
+    try {
+      const {
+        data: { animalById },
+      } = await axios.get<{ animalById: AnimalDataStructure }>(
+        `${apiUrl}${paths.animals}/${idAnimal}`
+      );
+
+      dispatch(hideLoaderActionCreator());
+
+      return animalById;
+    } catch (error) {
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: feedbackMessages.detailFailed,
+        })
+      );
+    }
+  };
+
+  return { getAnimals, removeAnimal, createAnimal, getAnimalById };
 };
 
 export default useAnimals;

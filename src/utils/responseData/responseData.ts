@@ -13,4 +13,5 @@ export const feedbackMessages: FeedbackMessages = {
   updateFailed:
     "There was an error on updating the animal card. Try it again please.",
   noAnimalsFound: "No animals found in adoption right now, try it later.",
+  detailFailed: "There was an error charging the detail animal page.",
 };
