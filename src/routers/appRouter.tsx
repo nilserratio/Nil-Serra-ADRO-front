@@ -2,9 +2,13 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import App from "../components/App/App";
 import { paths } from "../utils/paths/paths";
-import { LazyHomePage, LazyLoginPage } from "./LazyPages";
+import {
+  LazyAnimalDetailPage,
+  LazyCreateAnimalPage,
+  LazyHomePage,
+  LazyLoginPage,
+} from "./LazyPages";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import CreateAnimalPage from "../pages/CreateAnimalPage/CreateAnimalPage";
 
 const routes: RouteObject[] = [
   {
@@ -33,7 +37,19 @@ const routes: RouteObject[] = [
       },
       {
         path: paths.create,
-        element: <CreateAnimalPage />,
+        element: (
+          <Suspense>
+            <LazyCreateAnimalPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/:idAnimal",
+        element: (
+          <Suspense>
+            <LazyAnimalDetailPage />
+          </Suspense>
+        ),
       },
       {
         path: paths.notFound,

@@ -2,7 +2,10 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { animalsMock } from "../../mocks/animals/animalsMocks";
-import { renderWithProviders } from "../../utils/testUtils/testUtils";
+import {
+  renderWithProviders,
+  wrapWithRouter,
+} from "../../utils/testUtils/testUtils";
 import AnimalCard from "./AnimalCard";
 import { tokenMock } from "../../mocks/user/userMocks";
 
@@ -14,11 +17,13 @@ describe("Given a AnimalCard component", () => {
       const animalName = "Bella";
 
       renderWithProviders(
-        <AnimalCard
-          actionOnClick={actionOnClick}
-          animal={animalsMock[0]}
-          isLazy="eager"
-        />
+        wrapWithRouter(
+          <AnimalCard
+            actionOnClick={actionOnClick}
+            animal={animalsMock[0]}
+            isLazy="eager"
+          />
+        )
       );
 
       const cardHeading = screen.getByRole("heading", { name: animalName });
@@ -32,11 +37,13 @@ describe("Given a AnimalCard component", () => {
 
     test("Then it should the delete button", () => {
       renderWithProviders(
-        <AnimalCard
-          actionOnClick={actionOnClick}
-          animal={animalsMock[0]}
-          isLazy="eager"
-        />,
+        wrapWithRouter(
+          <AnimalCard
+            actionOnClick={actionOnClick}
+            animal={animalsMock[0]}
+            isLazy="eager"
+          />
+        ),
         {
           user: {
             isLogged: true,
@@ -53,11 +60,13 @@ describe("Given a AnimalCard component", () => {
 
     test("Then it should call the action on click action", async () => {
       renderWithProviders(
-        <AnimalCard
-          actionOnClick={actionOnClick}
-          animal={animalsMock[0]}
-          isLazy="eager"
-        />,
+        wrapWithRouter(
+          <AnimalCard
+            actionOnClick={actionOnClick}
+            animal={animalsMock[0]}
+            isLazy="eager"
+          />
+        ),
         {
           user: {
             isLogged: true,

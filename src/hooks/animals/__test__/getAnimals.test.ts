@@ -24,7 +24,10 @@ describe("Given a getAnimals fucntion", () => {
 
       const animals = await getAnimals(skip, limit);
 
-      const expectedAnimals = { animals: animalsMock, totalAnimals: undefined };
+      const expectedAnimals = {
+        animals: animalsMock,
+        totalAnimals: undefined,
+      };
 
       expect(animals).toStrictEqual(expectedAnimals);
     });

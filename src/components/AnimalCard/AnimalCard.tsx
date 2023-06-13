@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAppSelector } from "../../store";
 import { AnimalDataStructure } from "../../types";
 import Button from "../Button/Button";
@@ -20,14 +21,16 @@ const AnimalCard = ({
 
   return (
     <AnimalCardStyled className="animal-card">
-      <img
-        className="animal-card__image"
-        src={imageUrl}
-        alt={`The ${species} named ${name}`}
-        width={276}
-        height={235}
-        loading={isLazy}
-      />
+      <Link to={`/${id}`}>
+        <img
+          className="animal-card__image"
+          src={imageUrl}
+          alt={`The ${species} named ${name}`}
+          width={276}
+          height={235}
+          loading={isLazy}
+        />
+      </Link>
       <div className="animal-card__information">
         <h2>{name}</h2>
         <div className="animal-card__characteristics">

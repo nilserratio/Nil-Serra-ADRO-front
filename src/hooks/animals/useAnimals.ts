@@ -37,7 +37,10 @@ const useAnimals = () => {
 
         dispatch(hideLoaderActionCreator());
 
-        return { animals, totalAnimals };
+        return {
+          animals,
+          totalAnimals,
+        };
       } catch (error) {
         dispatch(hideLoaderActionCreator());
         dispatch(
@@ -116,31 +119,32 @@ const useAnimals = () => {
     }
   };
 
-  const getAnimalById = async (
-    idAnimal: string
-  ): Promise<AnimalDataStructure | undefined> => {
-    dispatch(showLoaderActionCreator());
+  const getAnimalById = useCallback(
+    async (idAnimal: string): Promise<AnimalDataStructure | undefined> => {
+      dispatch(showLoaderActionCreator());
 
-    try {
-      const {
-        data: { animalById },
-      } = await axios.get<{ animalById: AnimalDataStructure }>(
-        `${apiUrl}${paths.animals}/${idAnimal}`
-      );
+      try {
+        const {
+          data: { animalById },
+        } = await axios.get<{ animalById: AnimalDataStructure }>(
+          `${apiUrl}${paths.animals}/${idAnimal}`
+        );
 
-      dispatch(hideLoaderActionCreator());
+        dispatch(hideLoaderActionCreator());
 
-      return animalById;
-    } catch (error) {
-      dispatch(hideLoaderActionCreator());
-      dispatch(
-        showFeedbackActionCreator({
-          isError: true,
-          message: feedbackMessages.detailFailed,
-        })
-      );
-    }
-  };
+        return animalById;
+      } catch (error) {
+        dispatch(hideLoaderActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            isError: true,
+            message: feedbackMessages.detailFailed,
+          })
+        );
+      }
+    },
+    [dispatch]
+  );
 
   return { getAnimals, removeAnimal, createAnimal, getAnimalById };
 };

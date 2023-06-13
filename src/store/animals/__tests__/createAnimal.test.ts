@@ -14,7 +14,9 @@ describe("Given a createAnimal reducer", () => {
         createAnimalActionCreator(animalsMock[1])
       );
 
-      expect(newAnimalState).toStrictEqual({ animals: animalsMock });
+      expect(newAnimalState).toStrictEqual({
+        animals: animalsMock,
+      });
     });
   });
 });
