@@ -4,6 +4,16 @@ import { AnimalDataStructure } from "../../types";
 
 export const initialAnimalsState: AnimalsStateStructure = {
   animals: [],
+  animalById: {
+    name: "",
+    size: "",
+    description: "",
+    gender: "",
+    imageUrl: "",
+    races: "",
+    species: "",
+    yearOfBirth: "",
+  },
 };
 
 const animalsSlice = createSlice({

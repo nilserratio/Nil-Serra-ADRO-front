@@ -11,6 +11,8 @@ const AnimalDetailPage = (): React.ReactElement => {
   const { getAnimalById } = useAnimals();
   const { idAnimal } = useParams();
 
+  window.scrollTo(0, 0);
+
   useEffect(() => {
     (async () => {
       if (idAnimal) {
@@ -24,8 +26,6 @@ const AnimalDetailPage = (): React.ReactElement => {
   }, [idAnimal, dispatch, getAnimalById]);
 
   const animal = useAppSelector((state) => state.animals.animalById);
-
-  window.scrollTo(0, 0);
 
   return (
     <AnimalDetailPageStyled>

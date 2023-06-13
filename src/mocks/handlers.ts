@@ -25,12 +25,9 @@ export const handlers = [
     return res(ctx.status(201), ctx.json({ animal: animalsMock[0] }));
   }),
 
-  rest.get(
-    `${apiUrl}${paths.animals}/${animalsMock[0].id}`,
-    (_req, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ animalById: animalsMock[0] }));
-    }
-  ),
+  rest.get(`${apiUrl}${paths.animals}/:idAnimal`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ animalById: animalsMock[0] }));
+  }),
 ];
 
 export const errorHandlers = [

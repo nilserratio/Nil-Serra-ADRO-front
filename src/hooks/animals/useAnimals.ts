@@ -37,7 +37,10 @@ const useAnimals = () => {
 
         dispatch(hideLoaderActionCreator());
 
-        return { animals, totalAnimals };
+        return {
+          animals,
+          totalAnimals,
+        };
       } catch (error) {
         dispatch(hideLoaderActionCreator());
         dispatch(

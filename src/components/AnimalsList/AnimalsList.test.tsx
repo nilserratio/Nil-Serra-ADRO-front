@@ -32,7 +32,9 @@ describe("Given an AnimalsList component", () => {
   describe("When it's rendered with a list of 2 animals", () => {
     test("Then it should have the text 'Bella' inside a heading", () => {
       renderWithProviders(wrapWithRouter(<AnimalsList />), {
-        animals: { animals: animalsList },
+        animals: {
+          animals: animalsList,
+        },
       });
 
       const heading = screen.getByRole("heading", { name: animalName });
@@ -51,7 +53,9 @@ describe("Given an AnimalsList component", () => {
           id: "646fa090b926156009746913",
           token: tokenMock,
         },
-        animals: { animals: animalsList },
+        animals: {
+          animals: animalsList,
+        },
       });
 
       const heading = screen.getByRole("heading", { name: animalName });
