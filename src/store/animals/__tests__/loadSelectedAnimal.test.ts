@@ -10,7 +10,7 @@ describe("Given a loadSelectedAnimals reducer", () => {
     test("Then it should return the animal id and the animals list", () => {
       const expetedAnimalsState: AnimalsStateStructure = {
         animals: animalsMock,
-        animalId: animalsMock[0].id,
+        animalById: animalsMock[0],
       };
 
       const currentAnimalsState: AnimalsStateStructure = {
@@ -19,7 +19,7 @@ describe("Given a loadSelectedAnimals reducer", () => {
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(
         currentAnimalsState,
-        loadSelectedAnimalActionCreator(animalsMock[0].id as string)
+        loadSelectedAnimalActionCreator(animalsMock[0])
       );
 
       expect(newAnimalState).toStrictEqual(expetedAnimalsState);

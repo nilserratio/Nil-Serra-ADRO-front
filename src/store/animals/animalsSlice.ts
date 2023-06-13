@@ -38,10 +38,10 @@ const animalsSlice = createSlice({
 
     loadSelectedAnimal: (
       currentAnimalsState: AnimalsStateStructure,
-      action: PayloadAction<string>
+      action: PayloadAction<AnimalDataStructure>
     ): AnimalsStateStructure => ({
       ...currentAnimalsState,
-      animalId: action.payload,
+      animalById: action.payload,
     }),
   },
 });

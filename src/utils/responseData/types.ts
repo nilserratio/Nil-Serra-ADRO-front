@@ -8,4 +8,5 @@ export interface FeedbackMessages {
   updateOk: string;
   updateFailed: string;
   noAnimalsFound: string;
+  detailFailed: string;
 }
