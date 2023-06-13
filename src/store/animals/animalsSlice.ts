@@ -35,6 +35,14 @@ const animalsSlice = createSlice({
       ...currentAnimalsState,
       animals: [...currentAnimalsState.animals, action.payload],
     }),
+
+    loadSelectedAnimal: (
+      currentAnimalsState: AnimalsStateStructure,
+      action: PayloadAction<string>
+    ): AnimalsStateStructure => ({
+      ...currentAnimalsState,
+      animalId: action.payload,
+    }),
   },
 });
 
@@ -42,5 +50,6 @@ export const {
   loadAnimals: loadAnimalsActionCreator,
   removeAnimal: removeAnimalActionCreator,
   createAnimal: createAnimalActionCreator,
+  loadSelectedAnimal: loadSelectedAnimalActionCreator,
 } = animalsSlice.actions;
 export const animalsReducer = animalsSlice.reducer;
