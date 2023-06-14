@@ -35,6 +35,7 @@ const AnimalDetailPageStyled = styled.main`
       background: ${(props) => props.theme.colors.primary};
       border-radius: 12px;
       border: 1px solid rgb(217, 217, 217);
+      text-align: center;
     }
 
     &__years {

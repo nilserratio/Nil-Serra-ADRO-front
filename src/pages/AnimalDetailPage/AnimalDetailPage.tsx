@@ -11,7 +11,9 @@ const AnimalDetailPage = (): React.ReactElement => {
   const { getAnimalById } = useAnimals();
   const { idAnimal } = useParams();
 
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   useEffect(() => {
     (async () => {
@@ -21,6 +23,16 @@ const AnimalDetailPage = (): React.ReactElement => {
         dispatch(
           loadSelectedAnimalActionCreator(animal as AnimalDataStructure)
         );
+
+        const firstAnimalImage = animal?.imageUrl as string;
+        const preconnectImage = document.createElement("link");
+        preconnectImage.rel = "preload";
+        preconnectImage.as = "image";
+        preconnectImage.href = firstAnimalImage;
+
+        const parentElement = document.head;
+        const firstChild = parentElement.firstChild;
+        parentElement.insertBefore(preconnectImage, firstChild);
       }
     })();
   }, [idAnimal, dispatch, getAnimalById]);
