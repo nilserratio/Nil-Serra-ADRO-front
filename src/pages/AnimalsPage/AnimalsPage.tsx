@@ -71,7 +71,12 @@ const AnimalsPage = (): React.ReactElement => {
           className="animals-container__create"
           actionOnClick={() => navigate(paths.create)}
         >
-          <img src="/images/icons/add-icon.svg" alt="add animal icon" />
+          <img
+            src="/images/icons/add-icon.svg"
+            alt="add animal icon"
+            width={32}
+            height={32}
+          />
         </Button>
       )}
       {areChargedAnimals && (
