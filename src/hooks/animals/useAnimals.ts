@@ -26,9 +26,9 @@ const useAnimals = () => {
       skip: number,
       limit: number
     ): Promise<AnimalsResponseStructure | undefined> => {
-      dispatch(showLoaderActionCreator());
-
       try {
+        dispatch(showLoaderActionCreator());
+
         const {
           data: { animals, totalAnimals },
         } = await axios.get<AnimalsResponseStructure>(
@@ -57,9 +57,9 @@ const useAnimals = () => {
   const removeAnimal = async (
     idAnimal: string
   ): Promise<number | undefined> => {
-    dispatch(showLoaderActionCreator());
-
     try {
+      dispatch(showLoaderActionCreator());
+
       const { status } = await axios.delete(
         `${apiUrl}${paths.animals}/${idAnimal}`,
         reqConfigAuthorization
@@ -90,9 +90,9 @@ const useAnimals = () => {
   const createAnimal = async (
     animal: AnimalDataStructure
   ): Promise<AnimalDataStructure | undefined> => {
-    dispatch(showLoaderActionCreator());
-
     try {
+      dispatch(showLoaderActionCreator());
+
       const { data } = await axios.post<{ animal: AnimalDataStructure }>(
         `${apiUrl}${paths.animals}/create`,
         animal,
@@ -121,9 +121,9 @@ const useAnimals = () => {
 
   const getAnimalById = useCallback(
     async (idAnimal: string): Promise<AnimalDataStructure | undefined> => {
-      dispatch(showLoaderActionCreator());
-
       try {
+        dispatch(showLoaderActionCreator());
+
         const {
           data: { animalById },
         } = await axios.get<{ animalById: AnimalDataStructure }>(

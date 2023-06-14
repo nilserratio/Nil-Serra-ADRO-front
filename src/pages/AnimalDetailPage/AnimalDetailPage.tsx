@@ -32,6 +32,8 @@ const AnimalDetailPage = (): React.ReactElement => {
       <img
         src={animal?.imageUrl}
         alt={`A ${animal?.species} named ${animal?.name}`}
+        height="100%"
+        width={370.4}
       />
       <div className="details-container">
         <h1 className="details-container__tittle">{animal?.name}</h1>

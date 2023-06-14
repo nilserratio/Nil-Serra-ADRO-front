@@ -17,8 +17,9 @@ const uiSlice = createSlice({
       isLoading: true,
     }),
 
-    hideLoader: (): UiStructure => ({
-      ...initialLoaderState,
+    hideLoader: (currentState: UiStructure): UiStructure => ({
+      ...currentState,
+      isLoading: false,
     }),
 
     showFeedback: (
@@ -30,8 +31,11 @@ const uiSlice = createSlice({
       isError: action.payload.isError,
       message: action.payload.message,
     }),
-    hideFeedback: (): UiStructure => ({
-      ...initialLoaderState,
+    hideFeedback: (currentState: UiStructure): UiStructure => ({
+      ...currentState,
+      showFeedback: false,
+      isError: false,
+      message: "",
     }),
   },
 });
