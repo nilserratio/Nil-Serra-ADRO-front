@@ -8,12 +8,14 @@ describe("Given a showFeedback reducer", () => {
         showFeedback: false,
         isError: false,
         message: "",
+        isLoading: false,
       };
 
       const expectedState: UiStructure = {
         showFeedback: true,
         isError: true,
         message: "Test showFeedback error",
+        isLoading: false,
       };
 
       const payload: FeedbackPayloadStructure = {

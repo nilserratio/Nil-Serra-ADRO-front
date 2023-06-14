@@ -44,7 +44,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/:idAnimal",
+        path: paths.animalById,
         element: (
           <Suspense>
             <LazyAnimalDetailPage />

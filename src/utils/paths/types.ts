@@ -6,4 +6,5 @@ export interface Paths {
   user: string;
   animals: string;
   create: string;
+  animalById: string;
 }

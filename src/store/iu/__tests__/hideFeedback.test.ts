@@ -8,6 +8,7 @@ describe("Given a hideFeedback reducer", () => {
         showFeedback: true,
         isError: true,
         message: "Test showFeedback error",
+        isLoading: false,
       };
 
       const expectedState: UiStructure = {

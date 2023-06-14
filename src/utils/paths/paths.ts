@@ -8,4 +8,5 @@ export const paths: Paths = {
   user: "/user",
   animals: "/animals",
   create: "/create",
+  animalById: "/:idAnimal",
 };

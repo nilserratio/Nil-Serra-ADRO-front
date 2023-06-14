@@ -12,21 +12,22 @@ import {
 } from "react-router-dom";
 import { LazyAnimalDetailPage } from "../../routers/LazyPages";
 import { vi } from "vitest";
+import { paths } from "../../utils/paths/paths";
 
 window.scrollTo = vi.fn().mockImplementation(() => ({}));
 
 describe("Given a AnimalsPage component", () => {
   describe("When it's rendered with an animal id", () => {
-    test("Then it should show the text od the name of the animal inside a heading", () => {
+    test("Then it should show the text 'Adopt me!' inside a link", () => {
       renderWithProviders(wrapWithRouter(<AnimalDetailPage />));
 
-      const animalName = store.getState().animals.animalById?.name;
+      const linkText = "Adopt me!";
 
-      const detailHeading = screen.getByRole("heading", {
-        name: animalName,
+      const detailLink = screen.getByRole("link", {
+        name: linkText,
       });
 
-      expect(detailHeading).toBeInTheDocument();
+      expect(detailLink).toBeInTheDocument();
     });
   });
 
@@ -34,7 +35,7 @@ describe("Given a AnimalsPage component", () => {
     test("Then it should show the text od the name of the animal inside a heading", async () => {
       const route: RouteObject[] = [
         {
-          path: "/:idAnimal",
+          path: paths.animalById,
           element: <LazyAnimalDetailPage />,
         },
       ];
