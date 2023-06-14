@@ -27,7 +27,7 @@ const Pagination = ({
   return (
     <PaginationStyled className={className}>
       <Button
-        className="pagination-button"
+        className="pagination-button__previous"
         text="Previous"
         actionOnClick={previousOnClick}
         isDisable={isPreviousDisable}
@@ -43,7 +43,7 @@ const Pagination = ({
         {page} / {totalPages}
       </span>
       <Button
-        className="pagination-button"
+        className="pagination-button__next"
         text="Next"
         actionOnClick={nextOnClick}
         isDisable={isNextDisable}

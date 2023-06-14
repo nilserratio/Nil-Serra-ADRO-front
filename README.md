@@ -10,13 +10,27 @@ This app has been created as a final project of the Full Stack Web Development B
 
 ADRO Osona is built using the following technologies:
 
+- Figma
 - TypeScript
 - React
+- Node
+- Express
 - Redux Toolkit
 - Styled components
-- Axios
-- Jest & Vite
-- React testing library
+- Jest & Vitest & Supertest & React Testing Library (RTL)
+- MSW / Axios
+- React-router-dom
+- MongoDB & Mongoose & Mongo-Memory-Server
+- Husky-Hooks
+- ESLint & Prettier
+- Git & Github
+- Github Actions
+- Postman
+- Render
+- Netlify
+- SonarCloud & Lighthoue
+- MODELO DE RAMAS
+- PIPELINE CI/CS
 
 ## Demo
 

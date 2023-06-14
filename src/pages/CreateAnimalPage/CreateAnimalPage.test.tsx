@@ -9,6 +9,13 @@ import { animalFormLabels } from "../../mocks/animals/animalsMocks";
 import { store } from "../../store";
 import { feedbackMessages } from "../../utils/responseData/responseData";
 import { vi } from "vitest";
+import { paths } from "../../utils/paths/paths";
+import {
+  RouteObject,
+  RouterProvider,
+  createMemoryRouter,
+} from "react-router-dom";
+import AnimalsPage from "../AnimalsPage/AnimalsPage";
 
 describe("Given a CreateAnimalPage page component", () => {
   describe("When it's rendered", () => {
@@ -31,7 +38,23 @@ describe("Given a CreateAnimalPage page component", () => {
       const createButtonText = "Create";
       const expectedFeedbackMessage = feedbackMessages.createOk;
 
-      renderWithProviders(wrapWithRouter(<CreateAnimalPage />));
+      const route: RouteObject[] = [
+        {
+          path: paths.create,
+          element: <CreateAnimalPage />,
+        },
+        {
+          path: paths.home,
+          element: <AnimalsPage />,
+        },
+      ];
+
+      const router = createMemoryRouter(route, {
+        initialEntries: [paths.home, paths.create],
+        initialIndex: 1,
+      });
+
+      renderWithProviders(<RouterProvider router={router} />);
 
       window.scrollTo = vi.fn().mockImplementation(() => ({}));
 

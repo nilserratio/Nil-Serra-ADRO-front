@@ -18,6 +18,9 @@ const AnimalsPage = (): React.ReactElement => {
   const [totalAnimals, setTotalAnimals] = useState(0);
   const [page, setPage] = useState(1);
   const limit = 6;
+  const chargedAnimals = useAppSelector((state) => state.animals.animals);
+
+  const areChargedAnimals = chargedAnimals.length === 0;
 
   const nextPage = () => {
     setSkip(skip + limit);
@@ -70,6 +73,21 @@ const AnimalsPage = (): React.ReactElement => {
         >
           <img src="/images/icons/add-icon.svg" alt="add animal icon" />
         </Button>
+      )}
+      {areChargedAnimals && (
+        <div className="animals-container__feedback">
+          <img
+            src="images/feedback/warning-icon.svg"
+            alt="alert icon"
+            width={56}
+            height={55}
+            loading="lazy"
+          />
+          <span>
+            No animals found in this page in adoption right now, try another
+            filter or try it later.
+          </span>
+        </div>
       )}
       <AnimalsList />
       <Pagination

@@ -37,6 +37,21 @@ const AnimalsPageStyled = styled.main`
       border-radius: 12px;
       background: ${(props) => props.theme.colors.primary};
     }
+
+    &__feedback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      padding: 40px 20px;
+      width: 100%;
+      max-width: 276px;
+      background-color: ${(props) => props.theme.colors.primary};
+      border-radius: 10px;
+      border: 1px solid rgb(217, 217, 217);
+    }
   }
 `;
 
