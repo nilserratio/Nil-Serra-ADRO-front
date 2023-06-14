@@ -42,10 +42,11 @@ const AnimalDetailPage = (): React.ReactElement => {
   return (
     <AnimalDetailPageStyled>
       <img
+        className="details-image"
         src={animal?.imageUrl}
         alt={`A ${animal?.species} named ${animal?.name}`}
         height="100%"
-        width={370.4}
+        width={370}
       />
       <div className="details-container">
         <h1 className="details-container__tittle">{animal?.name}</h1>

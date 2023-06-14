@@ -7,6 +7,10 @@ const AnimalDetailPageStyled = styled.main`
   gap: 24px;
   width: 100%;
 
+  .details-image {
+    width: 100vw;
+  }
+
   .details-container {
     padding: 0 22px 32px 22px;
     display: flex;
