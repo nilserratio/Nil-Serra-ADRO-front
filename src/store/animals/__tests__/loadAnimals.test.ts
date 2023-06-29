@@ -7,10 +7,12 @@ describe("Given a loadAnimals reducer", () => {
     test("Then it should return a new state with the 2 animals", () => {
       const expetedAnimalsState: AnimalsStateStructure = {
         animals: animalsMock,
+        limit: 6,
       };
 
       const currentAnimalsState: AnimalsStateStructure = {
         animals: [],
+        limit: 6,
       };
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(

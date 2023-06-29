@@ -7,6 +7,7 @@ describe("Given a createAnimal reducer", () => {
     test("Then it should return a new state of the list with the new animal created", () => {
       const currentAnimalsState: AnimalsStateStructure = {
         animals: [animalsMock[0]],
+        limit: 6,
       };
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(
@@ -16,6 +17,7 @@ describe("Given a createAnimal reducer", () => {
 
       expect(newAnimalState).toStrictEqual({
         animals: animalsMock,
+        limit: 6,
       });
     });
   });

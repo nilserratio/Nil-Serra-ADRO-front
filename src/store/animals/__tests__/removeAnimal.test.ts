@@ -7,10 +7,12 @@ describe("Given a removeAnimal reducer", () => {
     test("Then it should return a new state of the list with 1 animal", () => {
       const expetedAnimalsState: AnimalsStateStructure = {
         animals: animalsMock.slice(1),
+        limit: 6,
       };
 
       const currentAnimalsState: AnimalsStateStructure = {
         animals: animalsMock,
+        limit: 6,
       };
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(

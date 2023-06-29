@@ -51,6 +51,11 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
   }
+
+  progress {
+    appearance: none;
+    -webkit-appearance: none;
+  }
 `;
 
 export default GlobalStyle;

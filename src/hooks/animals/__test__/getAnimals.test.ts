@@ -26,6 +26,7 @@ describe("Given a getAnimals fucntion", () => {
 
       const expectedAnimals = {
         animals: animalsMock,
+        limit: 10,
         totalAnimals: undefined,
       };
 

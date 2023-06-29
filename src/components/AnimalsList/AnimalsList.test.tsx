@@ -34,6 +34,7 @@ describe("Given an AnimalsList component", () => {
       renderWithProviders(wrapWithRouter(<AnimalsList />), {
         animals: {
           animals: animalsList,
+          limit: 6,
         },
       });
 
@@ -55,6 +56,7 @@ describe("Given an AnimalsList component", () => {
         },
         animals: {
           animals: animalsList,
+          limit: 6,
         },
       });
 

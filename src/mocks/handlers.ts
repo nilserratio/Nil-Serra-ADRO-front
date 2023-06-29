@@ -58,10 +58,9 @@ export const errorHandlers = [
   ),
 ];
 
-export const paginationHandlers = [
+export const loadMoreHandlers = [
   rest.get(`${apiUrl}${paths.animals}`, (req, res, ctx) => {
     const searchParams = req.url.searchParams;
-    searchParams.set("skip", "0");
     searchParams.set("limit", "6");
 
     return res(
