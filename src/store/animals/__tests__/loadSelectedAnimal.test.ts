@@ -11,10 +11,12 @@ describe("Given a loadSelectedAnimals reducer", () => {
       const expetedAnimalsState: AnimalsStateStructure = {
         animals: animalsMock,
         animalById: animalsMock[0],
+        limit: 6,
       };
 
       const currentAnimalsState: AnimalsStateStructure = {
         animals: animalsMock,
+        limit: 6,
       };
 
       const newAnimalState: AnimalsStateStructure = animalsReducer(

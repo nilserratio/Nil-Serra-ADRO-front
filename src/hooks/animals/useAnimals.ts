@@ -40,6 +40,7 @@ const useAnimals = () => {
         return {
           animals,
           totalAnimals,
+          limit,
         };
       } catch (error) {
         dispatch(hideLoaderActionCreator());

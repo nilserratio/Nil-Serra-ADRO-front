@@ -1,19 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { AnimalsStateStructure } from "./types";
 import { AnimalDataStructure } from "../../types";
+import { emptyAnimalState } from "../../utils/animalStates/animalStates";
 
 export const initialAnimalsState: AnimalsStateStructure = {
   animals: [],
-  animalById: {
-    name: "",
-    size: "",
-    description: "",
-    gender: "",
-    imageUrl: "",
-    races: "",
-    species: "",
-    yearOfBirth: "",
-  },
+  animalById: emptyAnimalState,
+  limit: 6,
+  totalAnimals: 0,
 };
 
 const animalsSlice = createSlice({
@@ -53,6 +47,13 @@ const animalsSlice = createSlice({
       ...currentAnimalsState,
       animalById: action.payload,
     }),
+
+    loadMoreAnimals: (
+      currentAnimalsState: AnimalsStateStructure
+    ): AnimalsStateStructure => ({
+      ...currentAnimalsState,
+      limit: currentAnimalsState.limit + 6,
+    }),
   },
 });
 
@@ -61,5 +62,6 @@ export const {
   removeAnimal: removeAnimalActionCreator,
   createAnimal: createAnimalActionCreator,
   loadSelectedAnimal: loadSelectedAnimalActionCreator,
+  loadMoreAnimals: loadMoreAnimalsActionCreator,
 } = animalsSlice.actions;
 export const animalsReducer = animalsSlice.reducer;
