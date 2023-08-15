@@ -15,6 +15,7 @@ import CreateAnimalPage from "../CreateAnimalPage/CreateAnimalPage";
 import { userLoggedStateMock } from "../../mocks/user/userMocks";
 import { loadMoreHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
+import { animalsPaginationMock } from "../../mocks/animals/animalsMocks";
 
 describe("Given a AnimalsPage component", () => {
   describe("When it's rendered", () => {
@@ -101,6 +102,29 @@ describe("Given a AnimalsPage component", () => {
 
       expect(showMoreButton).toBeEnabled();
     });
+
+    test("a", async () => {
+      server.resetHandlers(...loadMoreHandlers);
+      const showMoreButtonText = "Show more";
+
+      renderWithProviders(wrapWithRouter(<AnimalsPage />), {
+        animals: {
+          animals: animalsPaginationMock,
+          limit: 6,
+          totalAnimals: animalsPaginationMock.length,
+        },
+      });
+
+      const showMoreButton = screen.getByRole("button", {
+        name: showMoreButtonText,
+      });
+
+      await userEvent.click(showMoreButton);
+
+      waitFor(() => {
+        expect(showMoreButton).toHaveBeenCalled();
+      });
+    });
   });
 
   describe("When it's rendred on the first page and the user clicks the 'Show more' button, loading all the animals on the list", () => {
@@ -108,7 +132,13 @@ describe("Given a AnimalsPage component", () => {
       server.resetHandlers(...loadMoreHandlers);
       const showMoreButtonText = "Show more";
 
-      renderWithProviders(wrapWithRouter(<AnimalsPage />));
+      renderWithProviders(wrapWithRouter(<AnimalsPage />), {
+        animals: {
+          animals: animalsPaginationMock,
+          limit: 12,
+          totalAnimals: animalsPaginationMock.length,
+        },
+      });
 
       const showMoreButton = screen.getByRole("button", {
         name: showMoreButtonText,
