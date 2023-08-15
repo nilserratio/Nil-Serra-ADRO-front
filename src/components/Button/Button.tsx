@@ -1,7 +1,7 @@
 interface ButtonProps {
   className?: string;
   ariaLabel?: string;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset";
   text?: string;
   isDisable?: boolean;
   actionOnClick?: () => void;
