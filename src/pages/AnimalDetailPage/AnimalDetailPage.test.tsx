@@ -29,10 +29,8 @@ describe("Given a AnimalsPage component", () => {
 
       expect(detailLink).toBeInTheDocument();
     });
-  });
 
-  describe("When it's rendered with an animal id", () => {
-    test("Then it should show the text od the name of the animal inside a heading", async () => {
+    test("Then it should show the text on the name of the animal inside a heading", async () => {
       const route: RouteObject[] = [
         {
           path: paths.animalById,
