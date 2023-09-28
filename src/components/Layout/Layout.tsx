@@ -4,6 +4,7 @@ import ContainerStyled from "../shared/ContainerStyled";
 import { useAppSelector } from "../../store";
 import Loader from "../UI/Loading/Loader";
 import Feedback from "../UI/Feedback/Feedback";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Layout = (): React.ReactElement => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
@@ -17,6 +18,7 @@ const Layout = (): React.ReactElement => {
         <Header />
         <Outlet />
       </ContainerStyled>
+      <BurgerMenu />
     </>
   );
 };

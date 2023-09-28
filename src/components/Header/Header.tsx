@@ -1,7 +1,7 @@
 import HeaderStyled from "./HeaderStyled";
 import { paths } from "../../utils/paths/paths";
 import { NavLink } from "react-router-dom";
-import Burger from "../Burguer/Burger";
+import Burger from "../Burger/Burger";
 
 const Header = (): React.ReactElement => {
   return (

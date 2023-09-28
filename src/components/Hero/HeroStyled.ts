@@ -8,6 +8,7 @@ const HeroStyled = styled.section`
   align-items: center;
   min-width: 320px;
   margin-bottom: 30px;
+  min-width: 374px;
 
   .hero-container {
     &__information {
