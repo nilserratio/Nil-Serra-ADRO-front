@@ -60,6 +60,18 @@ const AnimalDetailPageStyled = styled.main`
       max-width: 400px;
       width: 100%;
     }
+
+    &__home {
+      padding: 8px 24px;
+      border: solid;
+      border-color: ${(props) => props.theme.colors.secondaryBackground};
+      border-width: 1px;
+      border-radius: 12px;
+      text-align: center;
+      background: ${(props) => props.theme.colors.primary};
+      max-width: 400px;
+      width: 100%;
+    }
   }
 `;
 

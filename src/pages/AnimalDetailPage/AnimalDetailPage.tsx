@@ -1,10 +1,11 @@
 import useAnimals from "../../hooks/animals/useAnimals";
 import AnimalDetailPageStyled from "./AnimalDetailPageStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { loadSelectedAnimalActionCreator } from "../../store/animals/animalsSlice";
 import { AnimalDataStructure } from "../../types";
 import { useEffect } from "react";
+import { paths } from "../../utils/paths/paths";
 
 const AnimalDetailPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -65,6 +66,9 @@ const AnimalDetailPage = (): React.ReactElement => {
         >
           Adopt me!
         </Link>
+        <NavLink className="details-container__home" to={paths.home}>
+          Back to homepage
+        </NavLink>
       </div>
     </AnimalDetailPageStyled>
   );
