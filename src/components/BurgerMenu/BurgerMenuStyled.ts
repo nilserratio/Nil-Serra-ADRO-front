@@ -37,6 +37,11 @@ const BurgerMenuStyled = styled.nav`
     &:hover {
       color: ${(props) => props.theme.colors.primary};
     }
+
+    &.active {
+      text-decoration: underline;
+      text-underline-offset: 1rem;
+    }
   }
 `;
 
