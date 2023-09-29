@@ -1,7 +1,7 @@
 import HeaderStyled from "./HeaderStyled";
 import { paths } from "../../utils/paths/paths";
 import { NavLink } from "react-router-dom";
-import Burger from "../Burger/Burger";
+import Navbar from "../Navbar/Navbar";
 
 const Header = (): React.ReactElement => {
   return (
@@ -15,7 +15,7 @@ const Header = (): React.ReactElement => {
           height={90}
         />
       </NavLink>
-      <Burger />
+      <Navbar />
     </HeaderStyled>
   );
 };
