@@ -30,7 +30,7 @@ describe("Given a Navbar component", () => {
     test("Then it can be closed by the user clicking outside or to a menu item. Then Home link should not be visible", async () => {
       const route: RouteObject[] = [
         {
-          path: paths.root,
+          path: paths.home,
           element: <App />,
         },
         {
@@ -40,7 +40,7 @@ describe("Given a Navbar component", () => {
       ];
 
       const router = createMemoryRouter(route, {
-        initialEntries: ["/"],
+        initialEntries: ["/home"],
         initialIndex: 0,
       });
 
@@ -50,11 +50,11 @@ describe("Given a Navbar component", () => {
 
       await userEvent.click(burgerMenuButton);
 
-      const homelink = screen.getByRole("link", { name: "Home" });
+      const homeLink = screen.getByRole("link", { name: "Home" });
 
-      await userEvent.click(homelink);
+      await userEvent.click(homeLink);
 
-      expect(homelink).not.toBeVisible();
+      expect(homeLink).not.toBeVisible();
     });
   });
 

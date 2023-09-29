@@ -33,7 +33,7 @@ describe("Given an App component", () => {
         },
       });
 
-      const signOutButton = screen.getByRole("button", { name: buttonText });
+      const signOutButton = screen.getByText(buttonText);
 
       expect(signOutButton).toBeInTheDocument();
     });
