@@ -29,7 +29,9 @@ const Navbar = (): React.ReactElement => {
   return (
     <NavbarStyled className="navbar-container">
       <Burger
-        className="navbar-container_burger-button"
+        className={`navbar-container_burger-button ${
+          isOpen ? "navbar-container_burger-button--open" : ""
+        }`}
         actionOnClick={toggleMenu}
         type="button"
         ariaLabel="burger menu icon"
