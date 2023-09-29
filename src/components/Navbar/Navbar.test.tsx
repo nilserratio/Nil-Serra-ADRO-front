@@ -17,23 +17,17 @@ import LoginPage from "../../pages/LoginPage/LoginPage";
 
 describe("Given a Navbar component", () => {
   describe("When its rendered", () => {
-    test("Then it should show the navigation link 'Home'", () => {
-      const expectedLinkText = "Home";
-
+    test("Then it should show a burger menu button", () => {
       renderWithProviders(wrapWithRouter(<Navbar />));
 
-      const navLinkHome = screen.getByRole("link", {
-        name: expectedLinkText,
-      });
+      const burgerMenuButton = screen.getByRole("button");
 
-      expect(navLinkHome).toBeInTheDocument();
+      expect(burgerMenuButton).toBeInTheDocument();
     });
   });
 
-  describe("When the user is logged and clicks the 'Sing out' button", () => {
-    test("Then it should logout the user and redirects him to the '/login' path", async () => {
-      const buttonText = "Sign out";
-
+  describe("When the burger menu is open", () => {
+    test("Then it can be closed by the user clicking outside or to a menu item. Then Home link should not be visible", async () => {
       const route: RouteObject[] = [
         {
           path: paths.root,
@@ -45,16 +39,85 @@ describe("Given a Navbar component", () => {
         },
       ];
 
-      const router = createMemoryRouter(route);
+      const router = createMemoryRouter(route, {
+        initialEntries: ["/"],
+        initialIndex: 0,
+      });
 
-      renderWithProviders(<RouterProvider router={router} />, {
+      renderWithProviders(<RouterProvider router={router} />);
+
+      const burgerMenuButton = screen.getByRole("button");
+
+      await userEvent.click(burgerMenuButton);
+
+      const homelink = screen.getByRole("link", { name: "Home" });
+
+      await userEvent.click(homelink);
+
+      expect(homelink).not.toBeVisible();
+    });
+  });
+
+  describe("When its rendered and the user is not logged in and burger menu button is clicked", () => {
+    test("Then it should show a link Home", async () => {
+      renderWithProviders(wrapWithRouter(<Navbar />));
+
+      const burgerMenuButton = screen.getByRole("button");
+
+      await userEvent.click(burgerMenuButton);
+
+      const homelink = screen.getByRole("link", { name: "Home" });
+
+      expect(homelink).toBeInTheDocument();
+    });
+
+    test("Then it should show a link Home", async () => {
+      renderWithProviders(wrapWithRouter(<Navbar />));
+
+      const burgerMenuButton = screen.getByRole("button");
+
+      await userEvent.click(burgerMenuButton);
+
+      const loginlink = screen.getByRole("link", { name: "Sign in" });
+
+      expect(loginlink).toBeInTheDocument();
+    });
+  });
+
+  describe("When its rendered and the user is logged in", () => {
+    test("Then it should show Home link", () => {
+      renderWithProviders(wrapWithRouter(<Navbar />), {
         user: userLoggedStateMock,
       });
 
-      const logoutButton = screen.getByRole("button", { name: buttonText });
+      const homelink = screen.getByText("Home");
+
+      expect(homelink).toBeInTheDocument();
+    });
+
+    test("Then it should show Sign out button", () => {
+      renderWithProviders(wrapWithRouter(<Navbar />), {
+        user: userLoggedStateMock,
+      });
+
+      const logoutButton = screen.getByText("Sign out");
+
+      expect(logoutButton).toBeInTheDocument();
+    });
+  });
+
+  describe("When its rendered and the user is logged and clicks the 'Sing out' button", () => {
+    test("Then it should logout the user show Sign in link and hide Sign out button", async () => {
+      const buttonText = "Sign out";
+
+      renderWithProviders(wrapWithRouter(<Navbar />), {
+        user: userLoggedStateMock,
+      });
+
+      const logoutButton = screen.getByText(buttonText);
       await userEvent.click(logoutButton);
 
-      expect(router.state.location.pathname).toStrictEqual(paths.login);
+      expect(logoutButton).not.toBeInTheDocument();
     });
   });
 });
