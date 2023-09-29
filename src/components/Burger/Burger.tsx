@@ -1,8 +1,25 @@
 import BurgerStyled from "./BurgerStyled";
 
-const Burger = (): React.ReactElement => {
+interface BurgerProps {
+  className: string;
+  actionOnClick?: () => void;
+  type?: "button";
+  ariaLabel?: string;
+}
+
+const Burger = ({
+  actionOnClick,
+  className,
+  type = "button",
+  ariaLabel = "",
+}: BurgerProps): React.ReactElement => {
   return (
-    <BurgerStyled>
+    <BurgerStyled
+      className={className}
+      onClick={actionOnClick}
+      type={type}
+      aria-label={ariaLabel}
+    >
       <div />
       <div />
       <div />
