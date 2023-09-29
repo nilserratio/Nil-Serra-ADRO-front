@@ -59,6 +59,7 @@ const AnimalDetailPageStyled = styled.main`
       color: ${(props) => props.theme.colors.primary};
       max-width: 400px;
       width: 100%;
+      align-self: center;
     }
 
     &__home {
@@ -71,6 +72,7 @@ const AnimalDetailPageStyled = styled.main`
       background: ${(props) => props.theme.colors.primary};
       max-width: 400px;
       width: 100%;
+      align-self: center;
     }
   }
 `;

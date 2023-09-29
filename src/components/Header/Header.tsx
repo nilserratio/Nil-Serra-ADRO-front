@@ -1,7 +1,7 @@
-import Navbar from "../Navbar/Navbar";
 import HeaderStyled from "./HeaderStyled";
 import { paths } from "../../utils/paths/paths";
 import { NavLink } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Header = (): React.ReactElement => {
   return (

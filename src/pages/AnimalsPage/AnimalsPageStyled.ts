@@ -8,6 +8,7 @@ const AnimalsPageStyled = styled.main`
   align-items: center;
   gap: 24px;
   width: 100%;
+  min-width: 374px;
 
   .animals-container {
     &__tittle {
