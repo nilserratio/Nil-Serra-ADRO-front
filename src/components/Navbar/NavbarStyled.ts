@@ -7,7 +7,7 @@ const NavbarStyled = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: ${(props) => props.theme.colors.secondaryBackground};
+    background: ${(props) => props.theme.colors.primaryBackground};
     height: 100vh;
     min-width: 374px;
     text-align: left;
@@ -29,7 +29,7 @@ const NavbarStyled = styled.nav`
       padding: 2rem 0;
       font-weight: bold;
       letter-spacing: 0.5rem;
-      color: ${(props) => props.theme.colors.tertiary};
+      color: ${(props) => props.theme.colors.secondary};
       text-decoration: none;
       transition: color 0.3s linear;
 
@@ -39,7 +39,7 @@ const NavbarStyled = styled.nav`
       }
 
       &:hover {
-        color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.tertiary};
       }
 
       &.active {
