@@ -22,6 +22,22 @@ const BurgerStyled = styled.button`
     position: relative;
     transform-origin: 1px;
   }
+
+  .navbar-container_burger-button--open {
+    &div {
+      transform-origin: 1px;
+      :first-child {
+        transform: rotate(45deg);
+      }
+      :nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      :nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
 `;
 
 export default BurgerStyled;

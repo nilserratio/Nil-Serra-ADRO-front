@@ -1,10 +1,10 @@
-import NavbarStyled from "./NavbarStyled";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
 import useLocalStorage from "../../hooks/localStorage/useLocalStorage";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
 import { paths } from "../../utils/paths/paths";
+import NavbarStyled from "./NavbarStyled";
 import Burger from "../Burger/Burger";
 import Button from "../Button/Button";
 
@@ -16,14 +16,15 @@ const Navbar = (): React.ReactElement => {
   const { removeToken } = useLocalStorage();
   const navigate = useNavigate();
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   const actionOnClick = () => {
     dispatch(logoutUserActionCreator());
     removeToken("token");
     navigate(paths.login);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    toggleMenu();
   };
 
   return (

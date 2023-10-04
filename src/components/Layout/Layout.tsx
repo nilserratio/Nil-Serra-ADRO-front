@@ -4,6 +4,7 @@ import ContainerStyled from "../shared/ContainerStyled";
 import { useAppSelector } from "../../store";
 import Loader from "../UI/Loading/Loader";
 import Feedback from "../UI/Feedback/Feedback";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const Layout = (): React.ReactElement => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
@@ -16,6 +17,7 @@ const Layout = (): React.ReactElement => {
       <ContainerStyled>
         <Header />
         <Outlet />
+        <ScrollToTop />
       </ContainerStyled>
     </>
   );
