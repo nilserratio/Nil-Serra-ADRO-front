@@ -7,7 +7,7 @@ const ScrollToTop = () => {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    setVisible(scrolled > 1500);
+    setVisible(scrolled > 900);
   };
 
   const scrollToTop = () => {
@@ -20,12 +20,14 @@ const ScrollToTop = () => {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <ScrollToTopStyled style={{ display: visible ? "" : "none" }}>
-      <BiArrowToTop
-        onClick={scrollToTop}
-        style={{ display: visible ? "inline" : "none" }}
-        aria-label="scroll to top button"
-      />
+    <ScrollToTopStyled
+      className={`srcollToTop ${
+        visible ? "srcollToTop--visible" : "srcollToTop--invisible"
+      }`}
+      aria-label="scroll to top button"
+      onClick={scrollToTop}
+    >
+      <BiArrowToTop />
     </ScrollToTopStyled>
   );
 };

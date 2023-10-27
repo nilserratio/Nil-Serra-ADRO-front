@@ -20,6 +20,10 @@ const Navbar = (): React.ReactElement => {
     setIsOpen(!isOpen);
   };
 
+  isOpen
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "");
+
   const actionOnClick = () => {
     dispatch(logoutUserActionCreator());
     removeToken("token");

@@ -16,7 +16,6 @@ const NavbarStyled = styled.nav`
     position: absolute;
     top: 0;
     left: 0;
-
     z-index: 1;
 
     @media (max-width: 576px) {

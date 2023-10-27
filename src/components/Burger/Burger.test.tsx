@@ -5,7 +5,7 @@ import Burger from "./Burger";
 describe("Given a Burger component", () => {
   describe("When it's rendered", () => {
     test("Then it should show the Burguer button", () => {
-      renderWithProviders(<Burger />);
+      renderWithProviders(<Burger className="" />);
 
       const button = screen.getByRole("button");
 
