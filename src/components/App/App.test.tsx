@@ -10,7 +10,7 @@ localStorage.setItem("token", tokenMock);
 
 describe("Given an App component", () => {
   describe("When it's rendered", () => {
-    test("Then it shouls show the ADRO Osona logo with the alt text 'Adro Osona logo with a dog footprint'", () => {
+    test("Then it should show the ADRO Osona logo with the alt text 'Adro Osona logo with a dog footprint'", () => {
       const altText = "Adro Osona logo with a dog footprint";
 
       renderWithProviders(wrapWithRouter(<App />));

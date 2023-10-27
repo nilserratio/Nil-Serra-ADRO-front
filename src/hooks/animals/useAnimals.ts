@@ -95,7 +95,7 @@ const useAnimals = () => {
       dispatch(showLoaderActionCreator());
 
       const { data } = await axios.post<{ animal: AnimalDataStructure }>(
-        `${apiUrl}${paths.animals}/create`,
+        `${apiUrl}${paths.animals}${paths.create}`,
         animal,
         reqConfigAuthorization
       );
