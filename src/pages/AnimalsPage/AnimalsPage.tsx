@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { paths } from "../../utils/paths/paths";
 import LoadMore from "../../components/LoadMore/LoadMore";
-import Hero from "../../components/Hero/Hero";
 
 const AnimalsPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -56,7 +55,6 @@ const AnimalsPage = (): React.ReactElement => {
 
   return (
     <AnimalsPageStyled className="animals-container">
-      <Hero />
       <div className="animals-container__tittle">
         <h1 className="animals-container__title">In adoption</h1>
         <span>You can&apos;t buy love, but you can rescue it.</span>

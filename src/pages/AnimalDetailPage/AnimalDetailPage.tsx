@@ -1,20 +1,27 @@
 import useAnimals from "../../hooks/animals/useAnimals";
 import AnimalDetailPageStyled from "./AnimalDetailPageStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { loadSelectedAnimalActionCreator } from "../../store/animals/animalsSlice";
 import { AnimalDataStructure } from "../../types";
 import { useEffect } from "react";
 import { paths } from "../../utils/paths/paths";
+import Button from "../../components/Button/Button";
 
 const AnimalDetailPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { getAnimalById } = useAnimals();
   const { idAnimal } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+
+  const actionOnClick = () => {
+    navigate(paths.animals);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     (async () => {
@@ -66,9 +73,11 @@ const AnimalDetailPage = (): React.ReactElement => {
         >
           Adopt me!
         </Link>
-        <NavLink className="details-container__home" to={paths.home}>
-          Back to homepage
-        </NavLink>
+        <Button
+          className="details-container__home"
+          actionOnClick={actionOnClick}
+          text="Back to Adoption List"
+        />
       </div>
     </AnimalDetailPageStyled>
   );

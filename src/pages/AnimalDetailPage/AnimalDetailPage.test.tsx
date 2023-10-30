@@ -13,6 +13,8 @@ import {
 import { LazyAnimalDetailPage } from "../../routers/LazyPages";
 import { vi } from "vitest";
 import { paths } from "../../utils/paths/paths";
+import AnimalsPage from "../AnimalsPage/AnimalsPage";
+import userEvent from "@testing-library/user-event";
 
 window.scrollTo = vi.fn().mockImplementation(() => ({}));
 
@@ -55,6 +57,32 @@ describe("Given a AnimalsPage component", () => {
       );
 
       expect(detailHeading).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's rendered and the user clicks the 'Back to Adoption List'", () => {
+    test("Then it should redirect the user to the adoption list page", async () => {
+      const buttonText = "Back to Adoption List";
+
+      const route: RouteObject[] = [
+        {
+          path: paths.root,
+          element: <AnimalDetailPage />,
+        },
+        {
+          path: paths.animals,
+          element: <AnimalsPage />,
+        },
+      ];
+
+      const router = createMemoryRouter(route);
+
+      renderWithProviders(<RouterProvider router={router} />);
+
+      const button = screen.getByRole("button", { name: buttonText });
+      await userEvent.click(button);
+
+      expect(router.state.location.pathname).toStrictEqual(paths.animals);
     });
   });
 });
