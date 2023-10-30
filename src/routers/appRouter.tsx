@@ -4,11 +4,12 @@ import App from "../components/App/App";
 import { paths } from "../utils/paths/paths";
 import {
   LazyAnimalDetailPage,
+  LazyAnimalsPage,
   LazyCreateAnimalPage,
   LazyHomePage,
   LazyLoginPage,
+  LazyNotFoundPage,
 } from "./LazyPages";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const routes: RouteObject[] = [
   {
@@ -24,6 +25,14 @@ const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyHomePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: paths.animals,
+        element: (
+          <Suspense>
+            <LazyAnimalsPage />
           </Suspense>
         ),
       },
@@ -55,7 +64,7 @@ const routes: RouteObject[] = [
         path: paths.notFound,
         element: (
           <Suspense>
-            <NotFoundPage />
+            <LazyNotFoundPage />
           </Suspense>
         ),
       },
