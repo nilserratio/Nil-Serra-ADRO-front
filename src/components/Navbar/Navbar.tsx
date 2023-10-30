@@ -62,6 +62,11 @@ const Navbar = (): React.ReactElement => {
             Home
           </NavLink>
         </li>
+        <li className="navbar-list__link">
+          <NavLink to={paths.animals} onClick={toggleMenu} onKeyUp={toggleMenu}>
+            Adoption List
+          </NavLink>
+        </li>
         {isLogged ? (
           <li className="navbar-list__link">
             <Button
