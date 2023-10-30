@@ -40,6 +40,7 @@ const AnimalDetailPageStyled = styled.main`
       border-radius: 12px;
       border: 1px solid rgb(217, 217, 217);
       text-align: center;
+      max-width: 400px;
     }
 
     &__years {
@@ -48,6 +49,7 @@ const AnimalDetailPageStyled = styled.main`
       border-radius: 12px;
       border: 1px solid rgb(217, 217, 217);
       text-align: center;
+      max-width: 400px;
     }
 
     &__button {
