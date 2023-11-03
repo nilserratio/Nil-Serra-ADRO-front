@@ -42,15 +42,9 @@ const AnimalForm = ({
     setAnimalData(initialAnimalData);
   };
 
-  const disabledButton =
-    animalData.name === "" ||
-    animalData.species === "" ||
-    animalData.races === "" ||
-    animalData.gender === "" ||
-    animalData.size === "" ||
-    animalData.yearOfBirth === "" ||
-    animalData.imageUrl === "" ||
-    animalData.description === "";
+  const isDisabledButton = Object.values(animalData).every(
+    (value) => value === ""
+  );
 
   return (
     <AnimalFormStyled
@@ -156,7 +150,7 @@ const AnimalForm = ({
         className="animalForm-container__submit"
         type="submit"
         text={buttonText}
-        isDisable={disabledButton}
+        isDisable={isDisabledButton}
       />
     </AnimalFormStyled>
   );

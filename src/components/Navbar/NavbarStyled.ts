@@ -45,6 +45,13 @@ const NavbarStyled = styled.nav`
         text-decoration: underline;
         text-underline-offset: 1rem;
       }
+
+      &:last-child button {
+        border-radius: 12px;
+        padding: 12px;
+        border: solid;
+        letter-spacing: 5px;
+      }
     }
   }
 

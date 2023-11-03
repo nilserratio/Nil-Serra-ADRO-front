@@ -7,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 describe("Given a ScrollToTop component", () => {
   const alternativeText = "scroll to top button";
 
-  describe("When a page on the top", () => {
+  describe("When the page is the top", () => {
     test("Then the 'go back to top' button it doesn't have to be visible", async () => {
       renderWithProviders(<ScrollToTop />);
 
