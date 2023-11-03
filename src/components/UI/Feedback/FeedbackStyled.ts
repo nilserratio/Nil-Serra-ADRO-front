@@ -9,6 +9,7 @@ const FeedbackStyled = styled.div`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.secondaryBackground}d9;
   min-width: 320px;
+  z-index: 1;
 
   .modal-container {
     display: flex;
